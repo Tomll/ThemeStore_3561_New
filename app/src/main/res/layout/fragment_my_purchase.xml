@@ -11,14 +11,11 @@
 
     <include layout="@layout/layout_title_bar" />
 
-    <TextView
-        android:id="@+id/textViewNoContent"
-        style="@style/textAppearanceXXXLarge"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="@string/no_content" />
+
+    <include
+        android:id="@+id/frameLayoutNoContent"
+        layout="@layout/layout_no_content" />
+
 </LinearLayout>
 
 

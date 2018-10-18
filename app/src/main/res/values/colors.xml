@@ -20,11 +20,34 @@
 
 
     <color name="color_status_bar">#04070C</color>
-    <color name="color_page_bg">#201F24</color>
+    <color name="color_page_bg">#202024</color>
     <color name="color_blue">#00A2FF</color>
     <color name="color_green">#7ED321</color>
-    <color name="color_title_bar_bg">#bb000000</color>
+    <color name="color_title_bar_bg">#590C0808</color>
     <color name="color_mine_fragment_card">#2D2C31</color>
     <color name="color_theme_card_bg">#222225</color>
 
+
+    <!--    <透明度参照表>
+        00%=FF（不透明）
+        5%=F2
+        10%=E5
+        15%=D8
+        20%=CC
+        25%=BF
+        30%=B2
+        35%=A5
+        40%=99
+        45%=8c
+        50%=7F
+        55%=72
+        60%=66
+        65%=59
+        70%=4c
+        75%=3F
+        80%=33
+        85%=21
+        95%=0c
+        100%=00（全透明）
+        -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
 </resources>

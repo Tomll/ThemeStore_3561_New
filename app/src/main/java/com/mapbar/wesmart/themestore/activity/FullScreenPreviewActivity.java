@@ -67,18 +67,6 @@ public class FullScreenPreviewActivity extends AutoLayoutActivity {
         }
     }
 
-    //隐藏状态栏 底部导航栏,全屏显示
-    public void fullScreen() {
-        View mDecorView = getWindow().getDecorView().findViewById(android.R.id.content);
-        mDecorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE);
-    }
-
     //初始化view及适配器
     public void initView() {
         fullScreen();
@@ -114,6 +102,14 @@ public class FullScreenPreviewActivity extends AutoLayoutActivity {
 
             @Override
             public View instantiateItem(ViewGroup container, int position) {
+                //给item设置点击监听
+                previewImgList.get(position).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();//全屏预览，单机图片，退出界面
+                    }
+                });
+
                 container.addView(previewImgList.get(position));
                 return previewImgList.get(position);
             }
@@ -125,6 +121,18 @@ public class FullScreenPreviewActivity extends AutoLayoutActivity {
         });
         fullScreenViewPager.setCurrentItem(position);
         setPositionPoint(position);//详情界面默认从第0个预览图开始预览
+    }
+
+    //隐藏状态栏 底部导航栏,全屏显示
+    public void fullScreen() {
+        View mDecorView = getWindow().getDecorView().findViewById(android.R.id.content);
+        mDecorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE);
     }
 
     //设置指示点位置

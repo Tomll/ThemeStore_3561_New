@@ -2,13 +2,14 @@ package com.mapbar.wesmart.themestore.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,9 +20,14 @@ import com.mapbar.wesmart.themestore.bean.ThemeInfo;
 import com.mapbar.wesmart.themestore.util.LogUtil;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
+import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
+
+import static com.mapbar.wesmart.themestore.R.id.theme_collection_checkbox;
 
 /**
  * Created by dongrp on 2018/10/15.
@@ -52,8 +58,10 @@ public class ThemeDetailFragment extends BaseFragment {
     TextView positionPoint3;
     @BindView(R.id.theme_apply_button)
     Button themeApplyButton;
-    @BindView(R.id.theme_collection_checkbox)
+    @BindView(theme_collection_checkbox)
     CheckBox themeCollectionCheckbox;
+    @BindView(R.id.progressFrameLayout)
+    FrameLayout progressFrameLayout;
     ArrayList<String> previewUrlList = new ArrayList<>();
     ArrayList<ImageView> previewImgList = new ArrayList<>();
     ThemeInfo themeInfo;
@@ -146,16 +154,18 @@ public class ThemeDetailFragment extends BaseFragment {
         setPositionPoint(0);//详情界面默认从第0个预览图开始预览
 
         //以下是主题描述信息适配
-        if (themeInfo.getPrice() > 0) { //如果价格大于0,说明主题收费,设置具体的价格和收费图标 (布局默认是免费的)
-            themePrice.setText(" " + themeInfo.getPrice());//设置价格
-            Drawable drawable = mActivity.getResources().getDrawable(R.mipmap.no_free);
-            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getMinimumHeight());//必须设置bounds，否则drawable不显示
-            themePrice.setCompoundDrawables(drawable, null, null, null);//设置收费图标
+        LogUtil.d(this, "initView: " + themeInfo.getPrice());
+        if (themeInfo.getPrice() > 0) { //如果价格大于0,说明主题收费,设置具体的价格 (布局默认是免费的)
+            themePrice.setText("¥ " + themeInfo.getPrice());//设置价格
         }
         themeSynopsis.setText(themeInfo.getIntro());//主题简介
         themeDesigner.setText("  设计师: " + themeInfo.getAuthor());//设计师
         themeDownloadCount.setText("  " + themeInfo.getDownloadCount() + "次          大小: " + themeInfo.getThemeSize() + "MB");//下载次数,大小
         themePublishTime.setText("  发布时间: " + themeInfo.getReleaseDate());//发布时间
+        if (themeInfo.isCollected()) {//设置是否收藏，（布局默认没收藏）
+            LogUtil.d(this, "initView: " + themeInfo.isCollected());
+            themeCollectionCheckbox.setChecked(true);
+        }
     }
 
     //设置指示点位置
@@ -180,7 +190,7 @@ public class ThemeDetailFragment extends BaseFragment {
         }
     }
 
-    //点击回掉
+    //点击回调
     @OnClick({R.id.button_back, R.id.viewPager, R.id.theme_apply_button})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -195,7 +205,35 @@ public class ThemeDetailFragment extends BaseFragment {
                 intent.putExtra("themePath", themeInfo.getDownloadPath());
                 mActivity.sendBroadcast(intent);
                 LogUtil.d(this, "theme_apply_button : " + themeInfo.getDownloadPath());
+                progressFrameLayout.setVisibility(View.VISIBLE);
+                //5s后回到桌面
+                new Timer().schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        mActivity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                progressFrameLayout.setVisibility(View.GONE);
+                            }
+                        });
+                        //回到桌面
+                        Intent intent2 = new Intent(Intent.ACTION_MAIN);
+                        intent2.addCategory(Intent.CATEGORY_HOME);
+                        startActivity(intent2);
+                    }
+                }, 5 * 1000);
                 break;
+        }
+    }
+
+    @OnCheckedChanged({R.id.theme_collection_checkbox})
+    public void onCheckedChanged(CompoundButton view, boolean isChanged) {
+        //onCheckedChanged会回掉 选中和取消选中的两个事件，我们只关注被选中的事件，所以加上isChange判断
+        //只有收藏一个checkBox所以就不switch了
+        if (isChanged) {
+            themeCollectionCheckbox.setText("  取消收藏");
+        } else {
+            themeCollectionCheckbox.setText("  收藏");
         }
     }
 

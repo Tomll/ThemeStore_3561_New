@@ -4,3 +4,8 @@
 .idea/
 local.properties
 *.md
+
+app/build.gradle
+build.gradle
+settings.gradle
+gradle/*

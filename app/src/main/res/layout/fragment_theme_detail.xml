@@ -7,6 +7,7 @@
     android:clickable="true">
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="30px"
@@ -57,9 +58,10 @@
             android:layout_alignBottom="@+id/tv1"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="10dp"
-            android:drawableLeft="@mipmap/free"
-            android:text=" 免费"
-            android:textColor="@color/color_blue" />
+            android:text="免费"
+            android:textColor="@color/color_blue"
+            android:textSize="26sp"
+            android:textStyle="bold" />
 
         <ScrollView
             android:id="@+id/scrollView1"
@@ -157,7 +159,6 @@
         android:layout_width="match_parent"
         android:layout_height="95px"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
         android:background="@color/color_title_bar_bg">
 
         <Button
@@ -183,8 +184,20 @@
             android:drawableLeft="@drawable/theme_detali_collect_button_selector"
             android:text="  收藏"
             android:textColor="#D6D6D6" />
-
     </RelativeLayout>
 
 
+    <FrameLayout
+        android:id="@+id/progressFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#cc000000"
+        android:visibility="gone"
+        >
+
+        <ProgressBar
+            android:layout_width="103px"
+            android:layout_height="103px"
+            android:layout_gravity="center" />
+    </FrameLayout>
 </RelativeLayout>

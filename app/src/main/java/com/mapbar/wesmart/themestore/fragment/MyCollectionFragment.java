@@ -1,6 +1,7 @@
 package com.mapbar.wesmart.themestore.fragment;
 
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.mapbar.wesmart.themestore.R;
@@ -16,8 +17,8 @@ import butterknife.OnClick;
 public class MyCollectionFragment extends BaseFragment {
     @BindView(R.id.button_back)
     TextView buttonBack;
-    @BindView(R.id.textViewNoContent)
-    TextView textViewNoContent;
+    @BindView(R.id.frameLayoutNoContent)
+    FrameLayout frameLayoutNoContent;
     @BindView(R.id.title)
     TextView title;
 
