@@ -50,7 +50,15 @@ public class LocalThemeFragment extends BaseFragment implements ThemeRecycleAdap
     public void initViewBefore() {
         //初始化数据
         //String themesJson = getAssetJson("themes.json", mActivity);
-        String localThemesJson = "/storage/emulated/0/internalDisk/themes/themes.json";//本地主题路径
+        String localThemesJson = null;
+        String systemThemesJson = "system/etc/themes/themes.json";
+        File file = new File(systemThemesJson);
+        if(file.exists()){
+            localThemesJson = systemThemesJson;
+        }else {
+            localThemesJson = "/storage/emulated/0/internalDisk/themes/themes.json";//本地主题路径
+        }
+
         String themesJson = getLocalThemesJson(localThemesJson);
         //读了4遍数据
         ArrayList<ThemeInfo> themeList1 = parseHaveHeaderJsonArray(themesJson);
