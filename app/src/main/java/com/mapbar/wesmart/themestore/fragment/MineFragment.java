@@ -53,7 +53,7 @@ public class MineFragment extends BaseFragment {
         loginState = Settings.Global.getInt(mActivity.getContentResolver(), "login_state", 1);
         faceUrl = Settings.Global.getString(mActivity.getContentResolver(), "faceUrl");
         userName = Settings.Global.getString(mActivity.getContentResolver(), "userName");
-        LogUtil.d(this, "onViewClicked:  login_state: " + loginState + "\nfaceUrl: " + faceUrl + "\nuserName: " + userName);
+        LogUtil.d(this, "initViewBefore:  \nlogin_state: " + loginState + "\nfaceUrl: " + faceUrl + "\nuserName: " + userName);
     }
 
     @Override

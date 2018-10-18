@@ -1,7 +1,10 @@
 package com.mapbar.wesmart.themestore.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -12,6 +15,7 @@ import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.mapbar.wesmart.themestore.R;
@@ -20,8 +24,6 @@ import com.mapbar.wesmart.themestore.bean.ThemeInfo;
 import com.mapbar.wesmart.themestore.util.LogUtil;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.OnCheckedChanged;
@@ -62,6 +64,8 @@ public class ThemeDetailFragment extends BaseFragment {
     CheckBox themeCollectionCheckbox;
     @BindView(R.id.progressFrameLayout)
     FrameLayout progressFrameLayout;
+
+    ThemeApplySuccessReceiver themeApplySuccessReceiver;
     ArrayList<String> previewUrlList = new ArrayList<>();
     ArrayList<ImageView> previewImgList = new ArrayList<>();
     ThemeInfo themeInfo;
@@ -87,6 +91,11 @@ public class ThemeDetailFragment extends BaseFragment {
             Glide.with(mActivity).load(previewUrlList.get(i)).into(imageView);
             previewImgList.add(imageView);
         }
+        //注册主题应用成功的广播接收器
+        themeApplySuccessReceiver = new ThemeApplySuccessReceiver();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("autoai.intent.action.theme.ThemeResult");
+        mActivity.registerReceiver(themeApplySuccessReceiver, intentFilter);
     }
 
     @Override
@@ -154,7 +163,6 @@ public class ThemeDetailFragment extends BaseFragment {
         setPositionPoint(0);//详情界面默认从第0个预览图开始预览
 
         //以下是主题描述信息适配
-        LogUtil.d(this, "initView: " + themeInfo.getPrice());
         if (themeInfo.getPrice() > 0) { //如果价格大于0,说明主题收费,设置具体的价格 (布局默认是免费的)
             themePrice.setText("¥ " + themeInfo.getPrice());//设置价格
         }
@@ -190,6 +198,19 @@ public class ThemeDetailFragment extends BaseFragment {
         }
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        progressFrameLayout.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //反注册广播
+        mActivity.unregisterReceiver(themeApplySuccessReceiver);
+    }
+
     //点击回调
     @OnClick({R.id.button_back, R.id.viewPager, R.id.theme_apply_button})
     public void onViewClicked(View view) {
@@ -204,24 +225,8 @@ public class ThemeDetailFragment extends BaseFragment {
                 intent.setAction("autoai.intent.action.theme.ThemeChange");
                 intent.putExtra("themePath", themeInfo.getDownloadPath());
                 mActivity.sendBroadcast(intent);
-                LogUtil.d(this, "theme_apply_button : " + themeInfo.getDownloadPath());
                 progressFrameLayout.setVisibility(View.VISIBLE);
-                //5s后回到桌面
-                new Timer().schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        mActivity.runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                progressFrameLayout.setVisibility(View.GONE);
-                            }
-                        });
-                        //回到桌面
-                        Intent intent2 = new Intent(Intent.ACTION_MAIN);
-                        intent2.addCategory(Intent.CATEGORY_HOME);
-                        startActivity(intent2);
-                    }
-                }, 5 * 1000);
+                LogUtil.d(this, "apply_theme : " + themeInfo.getDownloadPath());
                 break;
         }
     }
@@ -237,5 +242,26 @@ public class ThemeDetailFragment extends BaseFragment {
         }
     }
 
+
+    /**
+     * 主题适配成功广播接收器
+     */
+    class ThemeApplySuccessReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String themeResult = intent.getStringExtra("themeResult");
+            LogUtil.d(this, "onReceive: " + intent.getAction() + "   themeResult = " + themeResult);
+            if (null != themeResult && themeResult.equals("success")) {
+                Toast.makeText(mActivity, R.string.theme_apply_success, Toast.LENGTH_LONG).show();
+                //回到桌面
+                Intent intent2 = new Intent(Intent.ACTION_MAIN);
+                intent2.addCategory(Intent.CATEGORY_HOME);
+                startActivity(intent2);
+            } else if (null != themeResult && themeResult.equals("fail")) {
+                Toast.makeText(mActivity, R.string.theme_apply_fail, Toast.LENGTH_LONG).show();
+                progressFrameLayout.setVisibility(View.GONE);
+            }
+        }
+    }
 
 }

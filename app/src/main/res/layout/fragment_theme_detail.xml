@@ -191,13 +191,21 @@
         android:id="@+id/progressFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#cc000000"
-        android:visibility="gone"
-        >
+        android:background="#dd000000"
+        android:clickable="true"
+        android:visibility="gone">
 
         <ProgressBar
             android:layout_width="103px"
             android:layout_height="103px"
             android:layout_gravity="center" />
+
+        <TextView
+            style="@style/textAppearanceXXXLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="130px"
+            android:text="@string/theme_applying" />
     </FrameLayout>
 </RelativeLayout>
