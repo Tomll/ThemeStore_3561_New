@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="txt_normal">#7b8388</color>
+    <color name="txt_press">#ffffff</color>
+    <color name="gray">#8e969b</color>
+    <color name="blue">#0099ff</color>
+    <color name="grayForSearch">#474b4e</color>
+    <color name="yellowForDetails">#ffff00</color>
+
+    <color name="deep_gray">#606467</color>
+    <color name="edit_hint_textcolor">#b5b5b5</color>
+    <color name="blue_details">#3c69da</color>
+    <color name="gray_details_edittext">#7e8388</color>
+
+
+    <color name="color_status_bar">#04070C</color>
+    <color name="color_page_bg">#201F24</color>
+    <color name="color_blue">#00A2FF</color>
+    <color name="color_green">#7ED321</color>
+    <color name="color_title_bar_bg">#bb000000</color>
+    <color name="color_mine_fragment_card">#2D2C31</color>
+    <color name="color_theme_card_bg">#222225</color>
+
+</resources>

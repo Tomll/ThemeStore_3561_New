@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">主题商店</string>
+    <string name="theme">主题</string>
+    <string name="mine">我的</string>
+    <string name="search">搜索</string>
+    <string name="login">登录</string>
+    <string name="logout">退出</string>
+    <string name="unlogin">未登录</string>
+    <string name="local_theme">本地主题</string>
+    <string name="my_purchase">我的购买</string>
+    <string name="my_collection">我的收藏</string>
+    <string name="my_message">我的消息</string>
+    <string name="contact_us">联系我们</string>
+    <string name="input_keywords">请输入关键字</string>
+    <string name="no_search_content">未搜索到 %1$2s 相关的内容</string>
+    <string name="no_content">没有找到该内容</string>
+    <string name="cancle">取消</string>
+    <string name="back">返回</string>
+    <string name="theme_synopsis">主题简介</string>
+    <string name="free">  免费</string>
+
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="54px"
+    android:background="@drawable/shap_title_bar_background"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:layout_marginBottom="10px"
+    android:paddingLeft="15px"
+    >
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/textAppearanceXXXLargeBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/button_back"
+        style="@style/textAppearanceXXXLargeBold"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:drawableLeft="@mipmap/back"
+        android:gravity="center_vertical" />
+
+</FrameLayout>

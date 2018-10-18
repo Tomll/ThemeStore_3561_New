@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_page_bg"
+    android:orientation="horizontal"
+    tools:context="com.mapbar.wesmart.themestore.activity.MainActivity">
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:background="@color/color_status_bar"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <RadioButton
+                android:id="@+id/radioButton1"
+                style="@style/textAppearanceXXXLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableTop="@drawable/navibutton_theme_selector"
+                android:gravity="center"
+                android:text="@string/theme"
+                android:textColor="@drawable/txt_color_state" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                style="@style/textAppearanceXXXLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableTop="@drawable/navibutton_mine_selector"
+                android:gravity="center"
+                android:text="@string/mine"
+                android:textColor="@drawable/txt_color_state" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                style="@style/textAppearanceXXXLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableTop="@drawable/navibutton_search_selector"
+                android:gravity="center"
+                android:text="@string/search"
+                android:textColor="@drawable/txt_color_state" />
+        </LinearLayout>
+    </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+
+</LinearLayout>

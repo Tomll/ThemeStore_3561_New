@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_page_bg"
+    android:clickable="true">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30px"
+        android:paddingRight="30px"
+        android:paddingTop="10px">
+
+        <include
+            android:id="@+id/title_bar"
+            layout="@layout/layout_title_bar"
+            android:paddingLeft="30px"
+            android:paddingRight="30px"
+            android:paddingTop="10px" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/viewPagerContainer"
+            android:layout_width="490px"
+            android:layout_height="300px"
+            android:layout_below="@+id/title_bar"
+            android:layout_marginTop="19px"
+            android:clickable="true"
+            app:cardCornerRadius="10dp">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_page_bg"
+                android:clickable="true" />
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv1"
+            style="@style/textAppearanceXXXLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/viewPagerContainer"
+            android:layout_marginLeft="34px"
+            android:layout_toRightOf="@+id/viewPagerContainer"
+            android:text="@string/theme_synopsis"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/theme_price"
+            style="@style/textAppearanceXXXLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv1"
+            android:layout_alignBottom="@+id/tv1"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:drawableLeft="@mipmap/free"
+            android:text=" 免费"
+            android:textColor="@color/color_blue" />
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:layout_alignLeft="@+id/tv1"
+            android:layout_below="@+id/tv1"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="26px"
+            android:scrollbarFadeDuration="0"
+            android:scrollbarSize="3dp"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbarThumbVertical="@color/gray">
+
+            <TextView
+                android:id="@+id/theme_synopsis"
+                style="@style/textAppearanceXLarge"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:lineSpacingMultiplier="1.2"
+                android:text="街坊卡拉是收到附件是开绿灯解放安康圣诞节快乐的说法就是打开就是快捷方式卡颗螺丝钉解放昆仑山搭街坊深刻搭街坊卡拉是收到附件是开绿灯解放安康圣诞节快乐"
+                android:textColor="#9B9B9B" />
+
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/theme_designer"
+            style="@style/textAppearanceXLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/scrollView1"
+            android:layout_below="@+id/scrollView1"
+            android:layout_marginTop="26px"
+            android:drawableLeft="@mipmap/theme_designer"
+            android:text="  设计师：小新"
+            android:textColor="#D6D6D6" />
+
+        <TextView
+            android:id="@+id/theme_download_count"
+            style="@style/textAppearanceXXLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/theme_designer"
+            android:layout_below="@+id/theme_designer"
+            android:layout_marginTop="15px"
+            android:drawableLeft="@mipmap/theme_download_count"
+            android:text="  10000次           大小：20.5MB"
+            android:textColor="#D6D6D6" />
+
+        <TextView
+            android:id="@+id/theme_publish_time"
+            style="@style/textAppearanceXXLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/theme_download_count"
+            android:layout_below="@+id/theme_download_count"
+            android:layout_marginTop="15px"
+            android:drawableLeft="@mipmap/theme_publish_time"
+            android:text="  发布时间：2018.09.26"
+            android:textColor="#D6D6D6" />
+
+        <LinearLayout
+            android:layout_width="490px"
+            android:layout_height="5px"
+            android:layout_alignLeft="@+id/viewPagerContainer"
+            android:layout_below="@+id/viewPagerContainer"
+            android:layout_marginTop="28px"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/position_point1"
+                android:layout_width="31px"
+                android:layout_height="3px"
+                android:layout_marginRight="10px"
+                android:background="@drawable/theme_detail_position_point_selector" />
+
+            <TextView
+                android:id="@+id/position_point2"
+                android:layout_width="31px"
+                android:layout_height="3px"
+                android:layout_marginRight="10px"
+                android:background="@drawable/theme_detail_position_point_selector" />
+
+            <TextView
+                android:id="@+id/position_point3"
+                android:layout_width="31px"
+                android:layout_height="3px"
+                android:background="@drawable/theme_detail_position_point_selector" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="95px"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/color_title_bar_bg">
+
+        <Button
+            android:id="@+id/theme_apply_button"
+            style="@style/textAppearanceXXLarge"
+            android:layout_width="130px"
+            android:layout_height="46px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="35px"
+            android:background="@drawable/shap_button_blue"
+            android:text="应用主题" />
+
+        <CheckBox
+            android:id="@+id/theme_collection_checkbox"
+            style="@style/textAppearanceXXLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="60px"
+            android:layout_toLeftOf="@+id/theme_apply_button"
+            android:button="@null"
+            android:drawableLeft="@drawable/theme_detali_collect_button_selector"
+            android:text="  收藏"
+            android:textColor="#D6D6D6" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

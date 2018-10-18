@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_page_bg"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:paddingLeft="30px"
+    android:paddingRight="30px"
+    android:paddingTop="10px">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="350px"
+        android:background="@drawable/shap_title_bar_background"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="30dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:src="@mipmap/net_service" />
+
+            <TextView
+                style="@style/textAppearanceXXXLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="官网：" />
+
+            <TextView
+                android:id="@+id/text_mapbar_url"
+                style="@style/textAppearanceXXXLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="http://www.mapbar.com"
+                android:textColor="@color/blue" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/deep_gray" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="30dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:src="@mipmap/tel_service" />
+
+            <TextView
+                style="@style/textAppearanceXXXLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="客服：" />
+
+            <TextView
+                android:id="@+id/text_mapbar_tel"
+                style="@style/textAppearanceXXXLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="400-6616677"
+                android:textColor="@color/blue" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/deep_gray" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="30dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:src="@mipmap/qq_service" />
+
+            <TextView
+                style="@style/textAppearanceXXXLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="Q Q  ：907915091" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/deep_gray" />
+
+
+    </LinearLayout>
+</LinearLayout>

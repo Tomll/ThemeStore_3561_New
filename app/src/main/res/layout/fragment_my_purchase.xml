@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_page_bg"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:paddingLeft="30px"
+    android:paddingRight="30px"
+    android:paddingTop="10px">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <TextView
+        android:id="@+id/textViewNoContent"
+        style="@style/textAppearanceXXXLarge"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/no_content" />
+</LinearLayout>
+
+
+
