@@ -60,14 +60,9 @@ public class LocalThemeFragment extends BaseFragment implements ThemeRecycleAdap
         }
 
         String themesJson = getLocalThemesJson(localThemesJson);
-        //读了4遍数据
+        //读数据
         ArrayList<ThemeInfo> themeList1 = parseHaveHeaderJsonArray(themesJson);
         themeList.clear();
-        themeList.addAll(themeList1);
-        themeList.addAll(themeList1);
-        themeList.addAll(themeList1);
-        themeList.addAll(themeList1);
-        themeList.addAll(themeList1);
         themeList.addAll(themeList1);
         LogUtil.d(this, "initViewBefore  themeList.size(): " + themeList.size());
     }

@@ -50,7 +50,7 @@ public class MineFragment extends BaseFragment {
     @Override
     public void initViewBefore() {
         //获取登录状态,用户数据
-        loginState = Settings.Global.getInt(mActivity.getContentResolver(), "login_state", 1);
+        loginState = Settings.Global.getInt(mActivity.getContentResolver(), "login_state", 0);
         faceUrl = Settings.Global.getString(mActivity.getContentResolver(), "faceUrl");
         userName = Settings.Global.getString(mActivity.getContentResolver(), "userName");
         LogUtil.d(this, "initViewBefore:  \nlogin_state: " + loginState + "\nfaceUrl: " + faceUrl + "\nuserName: " + userName);
@@ -63,9 +63,10 @@ public class MineFragment extends BaseFragment {
 
     @Override
     public void initView(View rootView) {
-        if (loginState == 1) {//个人中心已登录
-            Glide.with(mActivity).load("http://wx1.sinaimg.cn/orj360/006pnLoLgy1ft6yichmarj30j60j675x.jpg").into(imageViewUserIcon);
-            textViewUserName.setText("辛巴");
+//        "http://wx1.sinaimg.cn/orj360/006pnLoLgy1ft6yichmarj30j60j675x.jpg"
+        if (loginState == 1 && null != userName && null != faceUrl) {//个人中心已登录
+            Glide.with(mActivity).load(faceUrl).into(imageViewUserIcon);
+            textViewUserName.setText(userName);
             buttonLogin.setText(R.string.logout);
         }
     }
@@ -77,15 +78,15 @@ public class MineFragment extends BaseFragment {
             case R.id.imageViewUserIcon://用户头像
                 break;
             case R.id.button_login://登录/退出登录
-                if (buttonLogin.getText().equals("登录")){
+                if (buttonLogin.getText().equals("登录")) {
                     if (loginState == 0) {//个人中心未登录
-                        Toast.makeText(mActivity, "请先登录个人中心账号", Toast.LENGTH_LONG).show();
-                    } else if (loginState == 1) {//个人中心已登录
-                        Glide.with(mActivity).load("http://wx1.sinaimg.cn/orj360/006pnLoLgy1ft6yichmarj30j60j675x.jpg").into(imageViewUserIcon);
-                        textViewUserName.setText("辛巴");
+                        Toast.makeText(mActivity, "请先登录个人中心账号", Toast.LENGTH_SHORT).show();
+                    } else if (loginState == 1 && null != userName && null != faceUrl) {//个人中心已登录
+                        Glide.with(mActivity).load(faceUrl).into(imageViewUserIcon);
+                        textViewUserName.setText(userName);
                         buttonLogin.setText(R.string.logout);
                     }
-                }else if (buttonLogin.getText().equals("退出")){
+                } else if (buttonLogin.getText().equals("退出")) {
                     //清空用户名,头像
                     imageViewUserIcon.setImageResource(R.mipmap.head);
                     textViewUserName.setText(R.string.unlogin);

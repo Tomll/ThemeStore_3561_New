@@ -16,8 +16,10 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.mapbar.wesmart.themestore.R;
 import com.mapbar.wesmart.themestore.bean.ThemeInfo;
+import com.mapbar.wesmart.themestore.util.LogUtil;
 import com.zhy.autolayout.utils.AutoUtils;
 
+import java.lang.reflect.Method;
 import java.util.List;
 
 /**
@@ -62,6 +64,11 @@ public class ThemeRecycleAdapter extends RecyclerView.Adapter<ThemeRecycleAdapte
         } catch (IOException ex) {
             return;
         }*/
+        //设置使用中 角标
+        String usingThemeID = getSystemProperty("persist.sys.current_theme");
+        if (null != usingThemeID && String.valueOf(themeInfo.getId()).equals(usingThemeID)) {
+            holder.iv_using.setVisibility(View.VISIBLE);
+        }
         holder.tv_theme_name.setText(themeInfo.getThemeName());//设置主题名称
         //如果价格大于0,那么是收费主题，就设置具体价格和左侧收费图标（布局中默认是免费的）
         if (themeInfo.getPrice() > 0) {
@@ -92,7 +99,7 @@ public class ThemeRecycleAdapter extends RecyclerView.Adapter<ThemeRecycleAdapte
 
     // 2、自定义的MyViewHolder
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener, CompoundButton.OnCheckedChangeListener {
-        ImageView iv_theme_preview;
+        ImageView iv_theme_preview, iv_using;
         TextView tv_theme_name, tv_theme_downloads, tv_theme_price;
         FrameLayout checkBoxContainer;
         CheckBox checkBoxEdit;
@@ -101,6 +108,7 @@ public class ThemeRecycleAdapter extends RecyclerView.Adapter<ThemeRecycleAdapte
             super(view);
             AutoUtils.autoSize(view);//AutoLayout在RecycleView中的使用配置
             iv_theme_preview = (ImageView) view.findViewById(R.id.iv_theme_preview);
+            iv_using = (ImageView) view.findViewById(R.id.iv_using);
             tv_theme_name = (TextView) view.findViewById(R.id.tv_theme_name);
             tv_theme_downloads = (TextView) view.findViewById(R.id.tv_theme_downloads);
             tv_theme_price = (TextView) view.findViewById(R.id.tv_them_price);
@@ -184,5 +192,18 @@ public class ThemeRecycleAdapter extends RecyclerView.Adapter<ThemeRecycleAdapte
     public interface RecycleView_OnItemCheckedChangedListener {
         void onItemCheckedChanged(View view, int position, boolean isChecked);
     }
+
+
+    public static String getSystemProperty(String key) {
+        try {
+            Class<?> classType = Class.forName("android.os.SystemProperties");
+            Method getMethod = classType.getDeclaredMethod("get", String.class);
+            return (String) getMethod.invoke(classType, key);
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+        return null;
+    }
+
 
 }
