@@ -1,9 +1,12 @@
 package com.mapbar.wesmart.themestore.fragment;
 
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mapbar.wesmart.themestore.R;
 import com.mapbar.wesmart.themestore.util.LogUtil;
@@ -26,11 +29,14 @@ public class ContactUsFragment extends BaseFragment {
     TextView textMapbarUrl;
     @BindView(R.id.text_mapbar_tel)
     TextView textMapbarTel;
+    @BindView(R.id.text_mapbar_qq)
+    TextView textMapbarQQ;
     Unbinder unbinder;
+    ClipboardManager cm;
 
     @Override
     public void initViewBefore() {
-
+        cm = (ClipboardManager) mActivity.getSystemService(Context.CLIPBOARD_SERVICE);
     }
 
     @Override
@@ -44,7 +50,7 @@ public class ContactUsFragment extends BaseFragment {
     }
 
 
-    @OnClick({R.id.button_back, R.id.text_mapbar_url, R.id.text_mapbar_tel})
+    @OnClick({R.id.button_back, R.id.text_mapbar_url, R.id.text_mapbar_tel, R.id.text_mapbar_qq})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.button_back:
@@ -52,12 +58,17 @@ public class ContactUsFragment extends BaseFragment {
                 LogUtil.d(this, "goBack");
                 break;
             case R.id.text_mapbar_url://官网网址
-                //调用系统默认浏览器，访问网址
-                startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(textMapbarUrl.getText().toString())));
+                //startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(textMapbarUrl.getText().toString())));//调用系统默认浏览器，访问网址
+                cm.setText(textMapbarUrl.getText().toString());
+                Toast.makeText(mActivity, R.string.copy_net_address, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.text_mapbar_tel://客服电话
                 //跳转到拨号界面，用户手动点击拨打
                 startActivity(new Intent(Intent.ACTION_DIAL).setData(Uri.parse("tel:" + textMapbarTel.getText())));
+                break;
+            case R.id.text_mapbar_qq://QQ号
+                cm.setText(textMapbarQQ.getText().toString());
+                Toast.makeText(mActivity, R.string.copy_qq_number, Toast.LENGTH_SHORT).show();
                 break;
         }
     }

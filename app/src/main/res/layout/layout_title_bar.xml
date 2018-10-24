@@ -2,12 +2,10 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="54px"
+    android:layout_marginBottom="10px"
     android:background="@drawable/shap_title_bar_background"
     android:gravity="center_vertical"
-    android:orientation="vertical"
-    android:layout_marginBottom="10px"
-    android:paddingLeft="15px"
-    >
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/title"
@@ -23,6 +21,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:drawableLeft="@mipmap/back"
-        android:gravity="center_vertical" />
+        android:gravity="center_vertical"
+        android:paddingLeft="15px"
+        android:paddingRight="50dp" />
 
 </FrameLayout>

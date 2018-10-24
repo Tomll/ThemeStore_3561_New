@@ -14,6 +14,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.mapbar.wesmart.themestore.MyApplication;
 import com.mapbar.wesmart.themestore.R;
 import com.mapbar.wesmart.themestore.adapter.ThemeRecycleAdapter;
 import com.mapbar.wesmart.themestore.bean.ThemeInfo;
@@ -28,6 +29,8 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+
+import static com.mapbar.wesmart.themestore.adapter.ThemeRecycleAdapter.getSystemProperty;
 
 /**
  * Created by dongrp on 2018/9/30.
@@ -53,9 +56,9 @@ public class LocalThemeFragment extends BaseFragment implements ThemeRecycleAdap
         String localThemesJson = null;
         String systemThemesJson = "system/etc/themes/themes.json";
         File file = new File(systemThemesJson);
-        if(file.exists()){
+        if (file.exists()) {
             localThemesJson = systemThemesJson;
-        }else {
+        } else {
             localThemesJson = "/storage/emulated/0/internalDisk/themes/themes.json";//本地主题路径
         }
 
@@ -90,6 +93,16 @@ public class LocalThemeFragment extends BaseFragment implements ThemeRecycleAdap
     }
 
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        String systemUsingThemeID = getSystemProperty("persist.sys.current_theme");
+        if (!MyApplication.sp.getString("usingThemeID", "").equals(systemUsingThemeID)) {
+            MyApplication.editor.putString("usingThemeID", systemUsingThemeID).commit();
+            themeRecycleAdapter.notifyDataSetChanged();
+        }
+    }
+
     @OnClick({R.id.button_back, R.id.title})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -105,7 +118,7 @@ public class LocalThemeFragment extends BaseFragment implements ThemeRecycleAdap
     @Override
     public void onItemClick(View view, int position) {
         LogUtil.d(this, "click item " + position);
-        addFragment(new ThemeDetailFragment(themeList.get(position)));
+        addFragment(new ThemeDetailFragment(themeList.get(position), true));
     }
 
     //ThemeRecycleAdapter 中的 item 的longClick回调

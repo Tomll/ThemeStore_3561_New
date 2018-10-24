@@ -114,7 +114,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:gravity="center_vertical"
-                android:text="Q Q  ：907915091" />
+                android:text="Q Q  ：" />
+
+            <TextView
+                android:id="@+id/text_mapbar_qq"
+                style="@style/textAppearanceXXXLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="907915091"
+                android:textColor="@color/blue" />
         </LinearLayout>
 
         <TextView

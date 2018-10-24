@@ -64,10 +64,13 @@ public class ThemeRecycleAdapter extends RecyclerView.Adapter<ThemeRecycleAdapte
         } catch (IOException ex) {
             return;
         }*/
-        //设置使用中 角标
-        String usingThemeID = getSystemProperty("persist.sys.current_theme");
+        //设置“使用中”角标
+        String usingThemeID = getSystemProperty("persist.sys.current_theme");//获取系统当前使用的主题的ID
+        LogUtil.d(this, "onBindViewHolder: usingThemeID = " + usingThemeID);
         if (null != usingThemeID && String.valueOf(themeInfo.getId()).equals(usingThemeID)) {
             holder.iv_using.setVisibility(View.VISIBLE);
+        } else {
+            holder.iv_using.setVisibility(View.GONE);
         }
         holder.tv_theme_name.setText(themeInfo.getThemeName());//设置主题名称
         //如果价格大于0,那么是收费主题，就设置具体价格和左侧收费图标（布局中默认是免费的）

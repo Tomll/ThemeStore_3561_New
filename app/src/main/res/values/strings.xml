@@ -22,5 +22,11 @@
     <string name="theme_applying">主题配置中...</string>
     <string name="theme_apply_success">主题应用成功</string>
     <string name="theme_apply_fail">主题应用失败</string>
+    <string name="please_login_first">请先登录账号</string>
+    <string name="please_login_center_first">请先登录个人中心账号</string>
+    <string name="copy_net_address">已将官网地址复制到剪切板</string>
+    <string name="copy_tel_number">已将电话号复制到剪切板</string>
+    <string name="copy_qq_number">已将QQ号复制到剪切板</string>
+
 
 </resources>

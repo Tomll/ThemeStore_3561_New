@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.mapbar.wesmart.themestore.MyApplication;
 import com.mapbar.wesmart.themestore.R;
 import com.mapbar.wesmart.themestore.activity.FullScreenPreviewActivity;
 import com.mapbar.wesmart.themestore.bean.ThemeInfo;
@@ -69,13 +70,15 @@ public class ThemeDetailFragment extends BaseFragment {
     ArrayList<String> previewUrlList = new ArrayList<>();
     ArrayList<ImageView> previewImgList = new ArrayList<>();
     ThemeInfo themeInfo;
+    boolean isLocalTheme;
 
     public ThemeDetailFragment() {
     }
 
     @SuppressLint("ValidFragment")
-    public ThemeDetailFragment(ThemeInfo themeInfo) {
+    public ThemeDetailFragment(ThemeInfo themeInfo, boolean isLocalTheme) {
         //从构造传来的themeInfo 对象中得到预览图路径url
+        this.isLocalTheme = isLocalTheme;
         this.themeInfo = themeInfo;
         previewUrlList.add(themeInfo.getPreView().getWidgetUrl());
         previewUrlList.add(themeInfo.getPreView().getIconUrl());
@@ -170,9 +173,15 @@ public class ThemeDetailFragment extends BaseFragment {
         themeDesigner.setText("  设计师: " + themeInfo.getAuthor());//设计师
         themeDownloadCount.setText("  " + themeInfo.getDownloadCount() + "次          大小: " + themeInfo.getThemeSize() + "MB");//下载次数,大小
         themePublishTime.setText("  发布时间: " + themeInfo.getReleaseDate());//发布时间
-        if (themeInfo.isCollected()) {//设置是否收藏，（布局默认没收藏）
-            LogUtil.d(this, "initView: " + themeInfo.isCollected());
-            themeCollectionCheckbox.setChecked(true);
+
+        if (isLocalTheme) {//本地主题，通过读取记录文件显示收藏状态
+            if (MyApplication.sp.getBoolean(themeInfo.getId() + "_collect", false)) {//设置是否收藏，（布局默认没收藏）
+                themeCollectionCheckbox.setChecked(true);
+            }
+        } else {//网络主题，直接读取themeInfo.isCollected()值
+            if (themeInfo.isCollected()) {//设置是否收藏，（布局默认没收藏）
+                themeCollectionCheckbox.setChecked(true);
+            }
         }
     }
 
@@ -236,10 +245,13 @@ public class ThemeDetailFragment extends BaseFragment {
         //onCheckedChanged会回掉 选中和取消选中的两个事件，我们只关注被选中的事件，所以加上isChange判断
         //只有收藏一个checkBox所以就不switch了
         if (isChanged) {
+            MyApplication.editor.putBoolean(themeInfo.getId() + "_collect", true);
             themeCollectionCheckbox.setText("  取消收藏");
         } else {
+            MyApplication.editor.putBoolean(themeInfo.getId() + "_collect", false);
             themeCollectionCheckbox.setText("  收藏");
         }
+        //MyApplication.editor.commit();
     }
 
 
@@ -249,15 +261,15 @@ public class ThemeDetailFragment extends BaseFragment {
     class ThemeApplySuccessReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            String themeResult = intent.getStringExtra("themeResult");
+            boolean themeResult = intent.getBooleanExtra("themeResult", false);
             LogUtil.d(this, "onReceive: " + intent.getAction() + "   themeResult = " + themeResult);
-            if (null != themeResult && themeResult.equals("success")) {
+            if (themeResult) {
                 Toast.makeText(mActivity, R.string.theme_apply_success, Toast.LENGTH_LONG).show();
                 //回到桌面
                 Intent intent2 = new Intent(Intent.ACTION_MAIN);
                 intent2.addCategory(Intent.CATEGORY_HOME);
                 startActivity(intent2);
-            } else if (null != themeResult && themeResult.equals("fail")) {
+            } else {
                 Toast.makeText(mActivity, R.string.theme_apply_fail, Toast.LENGTH_LONG).show();
                 progressFrameLayout.setVisibility(View.GONE);
             }

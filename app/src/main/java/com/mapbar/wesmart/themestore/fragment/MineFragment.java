@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.mapbar.wesmart.themestore.MyApplication;
 import com.mapbar.wesmart.themestore.R;
 import com.mapbar.wesmart.themestore.util.LogUtil;
 import com.mapbar.wesmart.themestore.widget.CircleImageView;
@@ -63,11 +64,8 @@ public class MineFragment extends BaseFragment {
 
     @Override
     public void initView(View rootView) {
-//        "http://wx1.sinaimg.cn/orj360/006pnLoLgy1ft6yichmarj30j60j675x.jpg"
-        if (loginState == 1 && null != userName && null != faceUrl) {//个人中心已登录
-            Glide.with(mActivity).load(faceUrl).into(imageViewUserIcon);
-            textViewUserName.setText(userName);
-            buttonLogin.setText(R.string.logout);
+        if (!MyApplication.sp.getBoolean("logOutByHand", false) && loginState == 1) {//个人中心已登录
+            login();
         }
     }
 
@@ -78,31 +76,38 @@ public class MineFragment extends BaseFragment {
             case R.id.imageViewUserIcon://用户头像
                 break;
             case R.id.button_login://登录/退出登录
-                if (buttonLogin.getText().equals("登录")) {
+                if (buttonLogin.getText().equals(getString(R.string.login))) {
                     if (loginState == 0) {//个人中心未登录
-                        Toast.makeText(mActivity, "请先登录个人中心账号", Toast.LENGTH_SHORT).show();
-                    } else if (loginState == 1 && null != userName && null != faceUrl) {//个人中心已登录
-                        Glide.with(mActivity).load(faceUrl).into(imageViewUserIcon);
-                        textViewUserName.setText(userName);
-                        buttonLogin.setText(R.string.logout);
+                        Toast.makeText(mActivity, getString(R.string.please_login_center_first), Toast.LENGTH_SHORT).show();
+                    } else if (loginState == 1) {//个人中心已登录
+                        login();
                     }
-                } else if (buttonLogin.getText().equals("退出")) {
-                    //清空用户名,头像
-                    imageViewUserIcon.setImageResource(R.mipmap.head);
-                    textViewUserName.setText(R.string.unlogin);
-                    buttonLogin.setText(R.string.login);
+                } else if (buttonLogin.getText().equals(getString(R.string.logout))) {
+                    logout();
                 }
                 break;
             /*case R.id.buttonLocalTheme://本地主题卡片
                 addFragment(new LocalThemeFragment());
                 break;*/ // TODO: 2018/10/16
             case R.id.buttonMyPurchase://我的购买卡片
+                if (buttonLogin.getText().equals(getString(R.string.login))) {
+                    Toast.makeText(mActivity, getString(R.string.please_login_first), Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 addFragment(new MyPurchaseFragment());
                 break;
             case R.id.buttonMyCollection://我的收藏卡片
+                if (buttonLogin.getText().equals(getString(R.string.login))) {
+                    Toast.makeText(mActivity, getString(R.string.please_login_first), Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 addFragment(new MyCollectionFragment());
                 break;
             case R.id.buttonMyMessage://我的消息卡片
+                if (buttonLogin.getText().equals(getString(R.string.login))) {
+                    Toast.makeText(mActivity, getString(R.string.please_login_first), Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 addFragment(new MyMessageFragment());
                 break;
             case R.id.buttonContactUs://联系我们卡片
@@ -112,10 +117,43 @@ public class MineFragment extends BaseFragment {
 
     }
 
+    //登录逻辑
+    public void login() {
+        MyApplication.editor.putBoolean("logOutByHand", false).commit();
+        if (null != userName) {
+            textViewUserName.setText(userName);
+        } else {
+            textViewUserName.setText("");
+        }
+        if (null != faceUrl) {
+            Glide.with(mActivity).load(faceUrl).into(imageViewUserIcon);
+        }
+        buttonLogin.setText(R.string.logout);
+        setCardEnable(true);
+    }
 
-    //设置卡片的使能状态
-    public void setCardEnable(int id, boolean isEnable) {
-        switch (id) {
+    //登出逻辑
+    public void logout() {
+        //清空用户名,头像
+        MyApplication.editor.putBoolean("logOutByHand", true).commit();
+        imageViewUserIcon.setImageResource(R.mipmap.head);
+        textViewUserName.setText(R.string.unlogin);
+        buttonLogin.setText(R.string.login);
+        setCardEnable(false);
+    }
+
+    //设置"购买""消息""收藏"三张卡片的使能状态
+    public void setCardEnable(/*int id,*/ boolean isEnable) {
+        if (isEnable) {
+            tvMyMessage.setEnabled(true);
+            tvMyCollection.setEnabled(true);
+            tvMyPurchase.setEnabled(true);
+        } else {
+            tvMyMessage.setEnabled(false);
+            tvMyCollection.setEnabled(false);
+            tvMyPurchase.setEnabled(false);
+        }
+        /*switch (id) {
             case R.id.buttonMyMessage:
                 if (isEnable) {
                     buttonMyMessage.setClickable(true);
@@ -143,7 +181,7 @@ public class MineFragment extends BaseFragment {
                     tvMyPurchase.setEnabled(false);
                 }
                 break;
-        }
+        }*/
     }
 
 
