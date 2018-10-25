@@ -50,11 +50,6 @@ public class MineFragment extends BaseFragment {
 
     @Override
     public void initViewBefore() {
-        //获取登录状态,用户数据
-        loginState = Settings.Global.getInt(mActivity.getContentResolver(), "login_state", 0);
-        faceUrl = Settings.Global.getString(mActivity.getContentResolver(), "faceUrl");
-        userName = Settings.Global.getString(mActivity.getContentResolver(), "userName");
-        LogUtil.d(this, "initViewBefore:  \nlogin_state: " + loginState + "\nfaceUrl: " + faceUrl + "\nuserName: " + userName);
     }
 
     @Override
@@ -64,8 +59,20 @@ public class MineFragment extends BaseFragment {
 
     @Override
     public void initView(View rootView) {
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        //每次onResume,获取登录状态,用户数据,并执行登录退出操作
+        loginState = Settings.Global.getInt(mActivity.getContentResolver(), "login_state", 0);
+        faceUrl = Settings.Global.getString(mActivity.getContentResolver(), "faceUrl");
+        userName = Settings.Global.getString(mActivity.getContentResolver(), "userName");
+        LogUtil.d(this, "onResume:  \nlogin_state: " + loginState + "\nfaceUrl: " + faceUrl + "\nuserName: " + userName);
         if (!MyApplication.sp.getBoolean("logOutByHand", false) && loginState == 1) {//个人中心已登录
             login();
+        } else {
+            logout();
         }
     }
 
@@ -132,7 +139,7 @@ public class MineFragment extends BaseFragment {
         setCardEnable(true);
     }
 
-    //登出逻辑
+    //退出逻辑
     public void logout() {
         //清空用户名,头像
         MyApplication.editor.putBoolean("logOutByHand", true).commit();
@@ -153,35 +160,6 @@ public class MineFragment extends BaseFragment {
             tvMyCollection.setEnabled(false);
             tvMyPurchase.setEnabled(false);
         }
-        /*switch (id) {
-            case R.id.buttonMyMessage:
-                if (isEnable) {
-                    buttonMyMessage.setClickable(true);
-                    tvMyMessage.setEnabled(true);
-                } else {
-                    buttonMyMessage.setClickable(false);
-                    tvMyMessage.setEnabled(false);
-                }
-                break;
-            case R.id.buttonMyCollection:
-                if (isEnable) {
-                    buttonMyCollection.setClickable(true);
-                    tvMyCollection.setEnabled(true);
-                } else {
-                    buttonMyCollection.setClickable(false);
-                    tvMyCollection.setEnabled(false);
-                }
-                break;
-            case R.id.buttonMyPurchase:
-                if (isEnable) {
-                    buttonMyPurchase.setClickable(true);
-                    tvMyPurchase.setEnabled(true);
-                } else {
-                    buttonMyPurchase.setClickable(false);
-                    tvMyPurchase.setEnabled(false);
-                }
-                break;
-        }*/
     }
 
 

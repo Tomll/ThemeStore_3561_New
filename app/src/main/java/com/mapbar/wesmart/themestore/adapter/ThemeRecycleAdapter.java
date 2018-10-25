@@ -67,6 +67,9 @@ public class ThemeRecycleAdapter extends RecyclerView.Adapter<ThemeRecycleAdapte
         //设置“使用中”角标
         String usingThemeID = getSystemProperty("persist.sys.current_theme");//获取系统当前使用的主题的ID
         LogUtil.d(this, "onBindViewHolder: usingThemeID = " + usingThemeID);
+        if (null == usingThemeID || "".equals(usingThemeID)) {
+            usingThemeID = "101";//默认使用 themeID = 101的主题
+        }
         if (null != usingThemeID && String.valueOf(themeInfo.getId()).equals(usingThemeID)) {
             holder.iv_using.setVisibility(View.VISIBLE);
         } else {
