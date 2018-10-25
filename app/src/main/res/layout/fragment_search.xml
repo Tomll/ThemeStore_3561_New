@@ -70,7 +70,7 @@
                 android:textColor="@color/gray"
                 android:visibility="gone" />
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:id="@+id/layout_clear"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -84,7 +84,7 @@
                     android:layout_height="32px"
                     android:layout_centerVertical="true"
                     android:src="@mipmap/ico_revoke" />
-            </LinearLayout>
+            </LinearLayout>-->
         </LinearLayout>
 
         <TextView

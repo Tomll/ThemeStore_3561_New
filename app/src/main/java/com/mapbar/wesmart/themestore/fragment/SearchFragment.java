@@ -27,8 +27,6 @@ public class SearchFragment extends BaseFragment {
     EditText edtTxtSearchContent;
     @BindView(R.id.txt_search_count)
     TextView txtSearchCount;
-    @BindView(R.id.layout_clear)
-    LinearLayout layoutClear;
     @BindView(R.id.button_clear)
     TextView buttonClear;
     @BindView(R.id.frameLayoutNoContent)
@@ -52,13 +50,13 @@ public class SearchFragment extends BaseFragment {
         edtTxtSearchContent.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_SEARCH){//通过软键盘的“完成”按钮，ediText传来搜索Action
-                    if (TextUtils.isEmpty(edtTxtSearchContent.getText())){
-                        Toast.makeText(mActivity,"输入内容不能为空",Toast.LENGTH_SHORT).show();
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {//通过软键盘的“完成”按钮，ediText传来搜索Action
+                    if (TextUtils.isEmpty(edtTxtSearchContent.getText())) {
+                        Toast.makeText(mActivity, "输入内容不能为空", Toast.LENGTH_SHORT).show();
                         return false;
                     }
                     frameLayoutNoContent.setVisibility(View.VISIBLE);
-                    textViewNoContent.setText(String.format(mActivity.getResources().getString(R.string.no_search_content),edtTxtSearchContent.getText().toString()));
+                    textViewNoContent.setText(String.format(mActivity.getResources().getString(R.string.no_search_content), edtTxtSearchContent.getText().toString()));
                 }
                 return false;
             }
@@ -66,28 +64,21 @@ public class SearchFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.layout_search, R.id.layout_clear, R.id.button_clear})
+    @OnClick({R.id.layout_search, R.id.button_clear})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.layout_search://放大镜按钮
-                if (TextUtils.isEmpty(edtTxtSearchContent.getText())){
-                    Toast.makeText(mActivity,"输入内容不能为空",Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(edtTxtSearchContent.getText())) {
+                    Toast.makeText(mActivity, "输入内容不能为空", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 frameLayoutNoContent.setVisibility(View.VISIBLE);
-                textViewNoContent.setText(String.format(mActivity.getResources().getString(R.string.no_search_content),edtTxtSearchContent.getText().toString()));
-                break;
-            case R.id.layout_clear://删除按钮
-                edtTxtSearchContent.setText("");
-                textViewNoContent.setText("");
-                frameLayoutNoContent.setVisibility(View.GONE);
-
+                textViewNoContent.setText(String.format(mActivity.getResources().getString(R.string.no_search_content), edtTxtSearchContent.getText().toString()));
                 break;
             case R.id.button_clear://取消按钮
                 edtTxtSearchContent.setText("");
                 textViewNoContent.setText("");
                 frameLayoutNoContent.setVisibility(View.GONE);
-
                 break;
         }
     }
