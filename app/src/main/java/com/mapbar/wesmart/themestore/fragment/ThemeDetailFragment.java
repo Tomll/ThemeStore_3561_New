@@ -264,7 +264,7 @@ public class ThemeDetailFragment extends BaseFragment {
             boolean themeResult = intent.getBooleanExtra("themeResult", false);
             LogUtil.d(this, "onReceive: " + intent.getAction() + "   themeResult = " + themeResult);
             if (themeResult) {
-                Toast.makeText(mActivity, R.string.theme_apply_success, Toast.LENGTH_LONG).show();
+                //Toast.makeText(mActivity, R.string.theme_apply_success, Toast.LENGTH_LONG).show();
                 //回到桌面
                 Intent intent2 = new Intent(Intent.ACTION_MAIN);
                 intent2.addCategory(Intent.CATEGORY_HOME);
