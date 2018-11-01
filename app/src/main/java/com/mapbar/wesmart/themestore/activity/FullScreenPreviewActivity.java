@@ -3,17 +3,12 @@ package com.mapbar.wesmart.themestore.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.mapbar.wesmart.themestore.R;
-import com.mapbar.wesmart.themestore.bean.ThemeInfo;
-import com.mapbar.wesmart.themestore.util.LogUtil;
+import com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.AutoViewPager;
+import com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.AutoViewPagerAdapter;
+import com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.TipPointGroup;
 import com.zhy.autolayout.AutoLayoutActivity;
 
 import java.util.ArrayList;
@@ -26,101 +21,46 @@ import butterknife.ButterKnife;
  */
 
 public class FullScreenPreviewActivity extends AutoLayoutActivity {
-    @BindView(R.id.fullScreenViewPager)
-    ViewPager fullScreenViewPager;
-    @BindView(R.id.position_point1)
-    TextView positionPoint1;
-    @BindView(R.id.position_point2)
-    TextView positionPoint2;
-    @BindView(R.id.position_point3)
-    TextView positionPoint3;
-    ArrayList<String> previewUrlList = new ArrayList<>();
-    ArrayList<ImageView> previewImgList = new ArrayList<>();
-    ThemeInfo themeInfo;
+    @BindView(R.id.autoViewPager)
+    AutoViewPager autoViewPager;
+    @BindView(R.id.tipPointGroup)
+    TipPointGroup tipPointGroup;
     int position;
+    ArrayList<String> previewUrlList = new ArrayList<>();
+    private AutoViewPagerAdapter<String> autoViewPagerAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_screen_preview);
         ButterKnife.bind(this);//绑定初始化ButterKnife
-        LogUtil.d(this, "onCreate: --------------------------------");
         initData();
         initView();
     }
 
     //初始化数据
     public void initData() {
-        //从传来的themeInfo 对象中得到预览图路径url
         Intent intent = getIntent();
-        themeInfo = (ThemeInfo) intent.getSerializableExtra("themeInfo");
+        previewUrlList = intent.getStringArrayListExtra("previewUrlList");
         position = intent.getIntExtra("position", 0);
-        previewUrlList.add(themeInfo.getPreView().getWidgetUrl());
-        previewUrlList.add(themeInfo.getPreView().getIconUrl());
-        previewUrlList.add(themeInfo.getPreView().getLockScreenUrl());
-        //初始化viewPager中的三张预览图，并填充数据
-        for (int i = 0; i < 3; i++) {
-            ImageView imageView = new ImageView(this);
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            Glide.with(this).load(previewUrlList.get(i)).into(imageView);
-            previewImgList.add(imageView);
-        }
     }
 
     //初始化view及适配器
     public void initView() {
         fullScreen();
-        fullScreenViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        //创建AutoViewPagerAdapter适配器
+        autoViewPagerAdapter = new AutoViewPagerAdapter<>(this, previewUrlList, new AutoViewPagerAdapter.OnAutoViewPagerItemClickListener<String>() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                LogUtil.d(this, "onPageSelected: " + position);
-                setPositionPoint(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
+            public void onItemClick(int position, String s) {
+                finish();//全屏预览时，单击图片，退出界面
             }
         });
-        //viewPager设置PagerAdapter适配器
-        fullScreenViewPager.setAdapter(new PagerAdapter() {
+        //初始化指示点布局
+        tipPointGroup.init(autoViewPagerAdapter.getRealCount(), R.drawable.selector_theme_detail_position_point, 40, 3);
+        //设置适配器 并 传入指示点布局,如果用户不需要指示点布局，那么传入null即可（指示点布局传入前必须先进行初始化）
+        autoViewPager.init(autoViewPagerAdapter, tipPointGroup, true);
+        autoViewPager.setCurrentItem(position);
 
-            @Override
-            public int getCount() {
-                return previewImgList.size();
-            }
-
-            @Override
-            public boolean isViewFromObject(View view, Object object) {
-                return view == object;
-            }
-
-            @Override
-            public View instantiateItem(ViewGroup container, int position) {
-                //给item设置点击监听
-                previewImgList.get(position).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        finish();//全屏预览，单机图片，退出界面
-                    }
-                });
-
-                container.addView(previewImgList.get(position));
-                return previewImgList.get(position);
-            }
-
-            @Override
-            public void destroyItem(ViewGroup container, int position, Object object) {
-                container.removeView(previewImgList.get(position));
-            }
-        });
-        fullScreenViewPager.setCurrentItem(position);
-        setPositionPoint(position);//详情界面默认从第0个预览图开始预览
     }
 
     //隐藏状态栏 底部导航栏,全屏显示
@@ -135,26 +75,5 @@ public class FullScreenPreviewActivity extends AutoLayoutActivity {
                         | View.SYSTEM_UI_FLAG_IMMERSIVE);
     }
 
-    //设置指示点位置
-    public void setPositionPoint(int position) {
-        switch (position) {
-            case 0:
-                positionPoint1.setSelected(true);
-                positionPoint2.setSelected(false);
-                positionPoint3.setSelected(false);
-                break;
-            case 1:
-                positionPoint1.setSelected(false);
-                positionPoint2.setSelected(true);
-                positionPoint3.setSelected(false);
-                break;
-            case 2:
-                positionPoint1.setSelected(false);
-                positionPoint2.setSelected(false);
-                positionPoint3.setSelected(true);
-                break;
-
-        }
-    }
 
 }

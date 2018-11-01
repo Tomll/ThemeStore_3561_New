@@ -74,7 +74,7 @@
                 android:layout_width="50px"
                 android:layout_height="50px"
                 android:layout_gravity="center"
-                android:background="@drawable/theme_item_checkbox_selector"
+                android:background="@drawable/selector_theme_item_checkbox"
                 android:button="@null" />
         </FrameLayout>
 

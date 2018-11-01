@@ -4,40 +4,18 @@
     android:layout_height="match_parent"
     android:clickable="true">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/fullScreenViewPager"
+    <com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.AutoViewPager
+        android:id="@+id/autoViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <LinearLayout
+    <com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.TipPointGroup
+        android:id="@+id/tipPointGroup"
         android:layout_width="match_parent"
         android:layout_height="5px"
-        android:layout_alignLeft="@+id/viewPagerContainer"
-        android:layout_below="@+id/viewPagerContainer"
         android:layout_gravity="bottom"
         android:layout_marginBottom="15dp"
-        android:layout_marginTop="28px"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal" />
 
-        <TextView
-            android:id="@+id/position_point1"
-            android:layout_width="40px"
-            android:layout_height="3px"
-            android:layout_marginRight="10px"
-            android:background="@drawable/theme_detail_position_point_selector" />
-
-        <TextView
-            android:id="@+id/position_point2"
-            android:layout_width="40px"
-            android:layout_height="3px"
-            android:layout_marginRight="10px"
-            android:background="@drawable/theme_detail_position_point_selector" />
-
-        <TextView
-            android:id="@+id/position_point3"
-            android:layout_width="40px"
-            android:layout_height="3px"
-            android:background="@drawable/theme_detail_position_point_selector" />
-    </LinearLayout>
 </FrameLayout>

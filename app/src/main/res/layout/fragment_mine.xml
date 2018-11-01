@@ -92,7 +92,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:drawableLeft="@drawable/card_my_purchase_selector"
+                    android:drawableLeft="@drawable/selector_card_my_purchase"
                     android:enabled="false"
                     android:gravity="center"
                     android:text="@string/my_purchase" />
@@ -118,7 +118,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:drawableLeft="@drawable/card_my_message_selector"
+                    android:drawableLeft="@drawable/selector_card_my_message"
                     android:enabled="false"
                     android:gravity="center"
                     android:text="@string/my_message" />
@@ -154,7 +154,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:drawableLeft="@drawable/card_my_collection_selector"
+                    android:drawableLeft="@drawable/selector_card_my_collection"
                     android:enabled="false"
                     android:gravity="center"
                     android:text="@string/my_collection" />
@@ -246,7 +246,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:drawableLeft="@drawable/card_my_message_selector"
+                    android:drawableLeft="@drawable/selector_card_my_message"
                     android:enabled="false"
                     android:gravity="center"
                     android:text="@string/my_message" />
@@ -282,7 +282,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:drawableLeft="@drawable/card_my_collection_selector"
+                    android:drawableLeft="@drawable/selector_card_my_collection"
                     android:enabled="false"
                     android:gravity="center"
                     android:text="@string/my_collection" />
@@ -338,7 +338,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:drawableLeft="@drawable/card_my_purchase_selector"
+                    android:drawableLeft="@drawable/selector_card_my_purchase"
                     android:enabled="false"
                     android:gravity="center"
                     android:text="@string/my_purchase" />

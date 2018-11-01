@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:button="@null"
-                android:drawableTop="@drawable/navibutton_theme_selector"
+                android:drawableTop="@drawable/selector_navibutton_theme"
                 android:gravity="center"
                 android:text="@string/theme"
                 android:textColor="@drawable/txt_color_state" />
@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:button="@null"
-                android:drawableTop="@drawable/navibutton_mine_selector"
+                android:drawableTop="@drawable/selector_navibutton_mine"
                 android:gravity="center"
                 android:text="@string/mine"
                 android:textColor="@drawable/txt_color_state" />
@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:button="@null"
-                android:drawableTop="@drawable/navibutton_search_selector"
+                android:drawableTop="@drawable/selector_navibutton_search"
                 android:gravity="center"
                 android:text="@string/search"
                 android:textColor="@drawable/txt_color_state" />
