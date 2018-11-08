@@ -56,7 +56,7 @@
             android:layout_alignBottom="@+id/tv1"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="10dp"
-            android:text="免费"
+            android:text="@string/free"
             android:textColor="@color/color_blue"
             android:textSize="26sp"
             android:textStyle="bold" />
@@ -147,7 +147,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="35px"
             android:background="@drawable/shap_button_blue"
-            android:text="应用主题" />
+            android:text="@string/apply_theme" />
 
         <CheckBox
             android:id="@+id/theme_collection_checkbox"
@@ -159,7 +159,7 @@
             android:layout_toLeftOf="@+id/theme_apply_button"
             android:button="@null"
             android:drawableLeft="@drawable/selector_theme_detali_collect_button"
-            android:text="  收藏"
+            android:text="@string/collect"
             android:textColor="#D6D6D6" />
     </RelativeLayout>
 

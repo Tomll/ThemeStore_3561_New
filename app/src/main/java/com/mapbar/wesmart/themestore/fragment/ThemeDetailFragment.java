@@ -116,9 +116,10 @@ public class ThemeDetailFragment extends BaseFragment {
             themePrice.setText("¥ " + themeInfo.getPrice());//设置价格
         }
         themeSynopsis.setText(themeInfo.getIntro());//主题简介
-        themeDesigner.setText("  设计师: " + themeInfo.getAuthor());//设计师
-        themeDownloadCount.setText("  " + themeInfo.getDownloadCount() + "次          大小: " + themeInfo.getThemeSize() + "MB");//下载次数,大小
-        themePublishTime.setText("  发布时间: " + themeInfo.getReleaseDate());//发布时间
+        //通配符%1$s %2$d %3$f含义：$s代表字符型参数  $d代表整型参数  $f代表浮点型参数, %1 %2 %3 代表第几个参数 ，$s
+        themeDesigner.setText(String.format(getString(R.string.designer), themeInfo.getAuthor()));//设计者
+        themeDownloadCount.setText(String.format(getString(R.string.downloads_and_size), themeInfo.getDownloadCount(), String.valueOf(themeInfo.getThemeSize())));//下载次数,大小
+        themePublishTime.setText(String.format(getString(R.string.release_date), themeInfo.getReleaseDate()));//发布日期
         //搜藏状态
         if (isLocalTheme) {//本地主题，通过读取记录文件显示收藏状态
             if (MyApplication.sp.getBoolean(themeInfo.getId() + "_collect", false)) {//设置是否收藏，（布局默认没收藏）
@@ -170,10 +171,10 @@ public class ThemeDetailFragment extends BaseFragment {
         //只有收藏一个checkBox所以就不switch了
         if (isChanged) {
             MyApplication.editor.putBoolean(themeInfo.getId() + "_collect", true);
-            themeCollectionCheckbox.setText("  " + getString(R.string.cancle) + getString(R.string.collect));
+            themeCollectionCheckbox.setText(" " + getString(R.string.cancle) + getString(R.string.collect));
         } else {
             MyApplication.editor.putBoolean(themeInfo.getId() + "_collect", false);
-            themeCollectionCheckbox.setText("  " + getString(R.string.collect));
+            themeCollectionCheckbox.setText(getString(R.string.collect));
         }
         //MyApplication.editor.commit();
     }

@@ -19,8 +19,13 @@
     <string name="cancle">取消</string>
     <string name="back">返回</string>
     <string name="theme_synopsis">主题简介</string>
-    <string name="free">  免费</string>
-    <string name="collect">收藏</string>
+    <string name="free">&#160;免费</string>
+    <string name="downloads">&#160;次下载</string>
+    <string name="designer">&#160;&#160;设计师：%1$s</string>
+    <string name="downloads_and_size">&#160; %1$d 次&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;大小：%2$sMB</string>
+    <string name="release_date">&#160;&#160;发布时间：%1$s</string>
+    <string name="collect">&#160;收藏</string>
+    <string name="apply_theme">应用主题</string>
     <string name="theme_applying">主题配置中...</string>
     <string name="theme_apply_success">主题应用成功</string>
     <string name="theme_apply_fail">主题应用失败</string>
@@ -29,6 +34,9 @@
     <string name="copy_net_address">已将官网地址复制到剪切板</string>
     <string name="copy_tel_number">已将电话号复制到剪切板</string>
     <string name="copy_qq_number">已将QQ号复制到剪切板</string>
+    <string name="official_website">官网：</string>
+    <string name="customer_service">客服：</string>
+    <string name="qq">Q&#160;&#160;Q：</string>
     <string name="can_not_delete_preset_theme">系统内置主题不可删除</string>
     <string name="can_not_delete_using_theme">使用中的主题不可删除</string>
 

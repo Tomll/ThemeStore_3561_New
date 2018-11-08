@@ -55,7 +55,7 @@
                     android:layout_alignParentEnd="true"
                     android:drawableStart="@mipmap/free"
                     android:gravity="center"
-                    android:text=" 免费"
+                    android:text="@string/free"
                     android:textColor="@color/color_blue"
                     android:textSize="20sp" />
             </RelativeLayout>

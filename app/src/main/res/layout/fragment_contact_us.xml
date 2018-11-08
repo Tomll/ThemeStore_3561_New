@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:gravity="center_vertical"
-                android:text="官网：" />
+                android:text="@string/official_website" />
 
             <TextView
                 android:id="@+id/text_mapbar_url"
@@ -75,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:gravity="center_vertical"
-                android:text="客服：" />
+                android:text="@string/customer_service" />
 
             <TextView
                 android:id="@+id/text_mapbar_tel"
@@ -114,7 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:gravity="center_vertical"
-                android:text="Q Q  ：" />
+                android:text="@string/qq" />
 
             <TextView
                 android:id="@+id/text_mapbar_qq"

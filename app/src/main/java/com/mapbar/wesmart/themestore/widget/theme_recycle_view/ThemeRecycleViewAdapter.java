@@ -124,7 +124,7 @@ public class ThemeRecycleViewAdapter extends RecyclerView.Adapter<ThemeRecycleVi
             holder.tv_theme_price.setCompoundDrawables(drawable, null, null, null);//设置收费图标
         }
         //设置下载量
-        holder.tv_theme_downloads.setText(themeInfo.getDownloadCount() + "次下载");
+        holder.tv_theme_downloads.setText(themeInfo.getDownloadCount() + mContext.getString(R.string.downloads));
         //设置编辑模式，是否显示checkBoxContainer
         if (isShowCheckBox) {
             if (position == 0 || position == 1 || position == 2 || String.valueOf(themeInfo.getId()).equals(usingThemeID)) { //前三个系统默认主题，以及使用中的主题不能被编辑
