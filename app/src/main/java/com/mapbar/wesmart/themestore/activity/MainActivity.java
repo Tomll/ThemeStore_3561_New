@@ -13,7 +13,7 @@ import com.mapbar.wesmart.themestore.R;
 import com.mapbar.wesmart.themestore.fragment.LocalThemeFragment;
 import com.mapbar.wesmart.themestore.fragment.MineFragment;
 import com.mapbar.wesmart.themestore.fragment.SearchFragment;
-import com.mapbar.wesmart.themestore.util.LogUtil;
+import com.mapbar.wesmart.themestore.util.Util;
 import com.zhy.autolayout.AutoLayoutActivity;
 
 import butterknife.BindView;
@@ -60,20 +60,20 @@ public class MainActivity extends AutoLayoutActivity /*implements BaseFragment.B
                 case R.id.radioButton1:
                     radioButton2.setChecked(false);
                     radioButton3.setChecked(false);
-                    LogUtil.d(this, "check radioButton1");
+                    Util.d(this, "check radioButton1");
 //                    addFragmentToContentLayout(themeFragment); // TODO: 2018/10/16
                     addFragmentToContentLayout(localThemeFragment);
                     break;
                 case R.id.radioButton2:
                     radioButton1.setChecked(false);
                     radioButton3.setChecked(false);
-                    LogUtil.d(this, "check radioButton2");
+                    Util.d(this, "check radioButton2");
                     addFragmentToContentLayout(mineFragment);
                     break;
                 case R.id.radioButton3:
                     radioButton1.setChecked(false);
                     radioButton2.setChecked(false);
-                    LogUtil.d(this, "check radioButton3");
+                    Util.d(this, "check radioButton3");
                     addFragmentToContentLayout(searchFragment);
                     break;
             }
@@ -110,7 +110,7 @@ public class MainActivity extends AutoLayoutActivity /*implements BaseFragment.B
                 || topShowingFragment.getClass().getSimpleName().equals("MineFragment")
                 || topShowingFragment.getClass().getSimpleName().equals("SearchFragment")) {
             finish();
-            LogUtil.d(this, "Finish MainActivity");
+            Util.d(this, "Finish MainActivity");
         } else {
             fragmentManager.findFragmentById(R.id.contentLayout);
             fragmentManager.popBackStack(null, 0);//弹出栈顶的fragment

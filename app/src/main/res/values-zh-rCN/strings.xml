@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AppStore</string>
+    <string name="app_name">主题商店</string>
     <string name="theme">主题</string>
     <string name="mine">我的</string>
     <string name="search">搜索</string>
@@ -12,6 +12,7 @@
     <string name="my_message">我的消息</string>
     <string name="contact_us">联系我们</string>
     <string name="input_keywords">请输入关键字</string>
+    <string name="can_not_emptyinput">输入内容不能为空</string>
     <string name="no_search_content">未搜索到 %1$2s 相关的内容</string>
     <string name="no_message">还没来消息</string>
     <string name="no_content">没有找到该内容</string>
@@ -19,6 +20,7 @@
     <string name="back">返回</string>
     <string name="theme_synopsis">主题简介</string>
     <string name="free">  免费</string>
+    <string name="collect">收藏</string>
     <string name="theme_applying">主题配置中...</string>
     <string name="theme_apply_success">主题应用成功</string>
     <string name="theme_apply_fail">主题应用失败</string>
@@ -27,6 +29,8 @@
     <string name="copy_net_address">已将官网地址复制到剪切板</string>
     <string name="copy_tel_number">已将电话号复制到剪切板</string>
     <string name="copy_qq_number">已将QQ号复制到剪切板</string>
+    <string name="can_not_delete_preset_theme">系统内置主题不可删除</string>
+    <string name="can_not_delete_using_theme">使用中的主题不可删除</string>
 
 
 </resources>

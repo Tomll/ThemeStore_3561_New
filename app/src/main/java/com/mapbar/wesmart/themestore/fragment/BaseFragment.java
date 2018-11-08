@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.mapbar.wesmart.themestore.R;
 import com.mapbar.wesmart.themestore.activity.MainActivity;
-import com.mapbar.wesmart.themestore.util.LogUtil;
+import com.mapbar.wesmart.themestore.util.Util;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -66,7 +66,7 @@ public abstract class BaseFragment extends Fragment {
         fragmentTransaction.add(R.id.contentLayout, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
-        LogUtil.d(this, "add " + fragment.getClass().getSimpleName());
+        Util.d(this, "add " + fragment.getClass().getSimpleName());
     }
 
 

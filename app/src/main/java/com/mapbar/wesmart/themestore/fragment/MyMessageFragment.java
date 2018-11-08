@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mapbar.wesmart.themestore.R;
-import com.mapbar.wesmart.themestore.util.LogUtil;
+import com.mapbar.wesmart.themestore.util.Util;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -50,7 +50,7 @@ public class MyMessageFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.button_back:
                 mActivity.goBack();
-                LogUtil.d(this, "goBack");
+                Util.d(this, "goBack");
                 break;
         }
     }

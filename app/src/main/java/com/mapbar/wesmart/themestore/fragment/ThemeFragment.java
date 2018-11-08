@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.view.View;
 
 import com.mapbar.wesmart.themestore.R;
-import com.mapbar.wesmart.themestore.util.LogUtil;
+import com.mapbar.wesmart.themestore.util.Util;
 import com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.AutoViewPager;
 import com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.AutoViewPagerAdapter;
 import com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.TipPointGroup;
@@ -51,7 +51,7 @@ public class ThemeFragment extends BaseFragment {
         autoViewPagerAdapter = new AutoViewPagerAdapter<>(mActivity, previewUrlList, new AutoViewPagerAdapter.OnAutoViewPagerItemClickListener<String>() {
             @Override
             public void onItemClick(int position, String s) {
-                LogUtil.d(this, "onItemClick:    " + position);
+                Util.d(this, "onItemClick:    " + position);
             }
         });
         //初始化指示点布局

@@ -5,12 +5,11 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.mapbar.wesmart.themestore.MyApplication;
 import com.mapbar.wesmart.themestore.R;
-import com.mapbar.wesmart.themestore.util.LogUtil;
+import com.mapbar.wesmart.themestore.util.Util;
 import com.mapbar.wesmart.themestore.widget.CircleImageView;
 
 import butterknife.BindView;
@@ -68,7 +67,7 @@ public class MineFragment extends BaseFragment {
         loginState = Settings.Global.getInt(mActivity.getContentResolver(), "login_state", 0);
         faceUrl = Settings.Global.getString(mActivity.getContentResolver(), "faceUrl");
         userName = Settings.Global.getString(mActivity.getContentResolver(), "userName");
-        LogUtil.d(this, "onResume:  \nlogin_state: " + loginState + "\nfaceUrl: " + faceUrl + "\nuserName: " + userName);
+        Util.d(this, "onResume:  \nlogin_state: " + loginState + "\nfaceUrl: " + faceUrl + "\nuserName: " + userName);
         if (!MyApplication.sp.getBoolean("logOutByHand", false) && loginState == 1) {//个人中心已登录
             login();
         } else {
@@ -85,7 +84,7 @@ public class MineFragment extends BaseFragment {
             case R.id.button_login://登录/退出登录
                 if (buttonLogin.getText().equals(getString(R.string.login))) {
                     if (loginState == 0) {//个人中心未登录
-                        Toast.makeText(mActivity, getString(R.string.please_login_center_first), Toast.LENGTH_SHORT).show();
+                        Util.toastShort(mActivity, R.string.please_login_center_first);
                     } else if (loginState == 1) {//个人中心已登录
                         login();
                     }
@@ -98,21 +97,21 @@ public class MineFragment extends BaseFragment {
                 break;*/ // TODO: 2018/10/16
             case R.id.buttonMyPurchase://我的购买卡片
                 if (buttonLogin.getText().equals(getString(R.string.login))) {
-                    Toast.makeText(mActivity, getString(R.string.please_login_first), Toast.LENGTH_SHORT).show();
+                    Util.toastShort(mActivity, R.string.please_login_first);
                     return;
                 }
                 addFragment(new MyPurchaseFragment());
                 break;
             case R.id.buttonMyCollection://我的收藏卡片
                 if (buttonLogin.getText().equals(getString(R.string.login))) {
-                    Toast.makeText(mActivity, getString(R.string.please_login_first), Toast.LENGTH_SHORT).show();
+                    Util.toastShort(mActivity, R.string.please_login_first);
                     return;
                 }
                 addFragment(new MyCollectionFragment());
                 break;
             case R.id.buttonMyMessage://我的消息卡片
                 if (buttonLogin.getText().equals(getString(R.string.login))) {
-                    Toast.makeText(mActivity, getString(R.string.please_login_first), Toast.LENGTH_SHORT).show();
+                    Util.toastShort(mActivity, R.string.please_login_first);
                     return;
                 }
                 addFragment(new MyMessageFragment());

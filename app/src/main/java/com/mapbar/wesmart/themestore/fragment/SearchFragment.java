@@ -8,9 +8,9 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mapbar.wesmart.themestore.R;
+import com.mapbar.wesmart.themestore.util.Util;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -52,7 +52,7 @@ public class SearchFragment extends BaseFragment {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {//通过软键盘的“完成”按钮，ediText传来搜索Action
                     if (TextUtils.isEmpty(edtTxtSearchContent.getText())) {
-                        Toast.makeText(mActivity, "输入内容不能为空", Toast.LENGTH_SHORT).show();
+                        Util.toastShort(mActivity, R.string.can_not_emptyinput);
                         return false;
                     }
                     frameLayoutNoContent.setVisibility(View.VISIBLE);
@@ -69,7 +69,7 @@ public class SearchFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.layout_search://放大镜按钮
                 if (TextUtils.isEmpty(edtTxtSearchContent.getText())) {
-                    Toast.makeText(mActivity, "输入内容不能为空", Toast.LENGTH_SHORT).show();
+                    Util.toastShort(mActivity, R.string.can_not_emptyinput);
                     return;
                 }
                 frameLayoutNoContent.setVisibility(View.VISIBLE);

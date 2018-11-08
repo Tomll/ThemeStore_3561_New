@@ -11,13 +11,12 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mapbar.wesmart.themestore.MyApplication;
 import com.mapbar.wesmart.themestore.R;
 import com.mapbar.wesmart.themestore.activity.FullScreenPreviewActivity;
 import com.mapbar.wesmart.themestore.bean.ThemeInfo;
-import com.mapbar.wesmart.themestore.util.LogUtil;
+import com.mapbar.wesmart.themestore.util.Util;
 import com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.AutoViewPager;
 import com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.AutoViewPagerAdapter;
 import com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.TipPointGroup;
@@ -104,7 +103,7 @@ public class ThemeDetailFragment extends BaseFragment {
                 intent.putStringArrayListExtra("previewUrlList", previewUrlList);
                 intent.putExtra("position", position);
                 getActivity().startActivity(intent);
-                LogUtil.d(this, "onClick: item " + position);
+                Util.d(this, "onClick: item " + position);
             }
         });
         //初始化指示点布局,
@@ -151,7 +150,7 @@ public class ThemeDetailFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.button_back:
                 mActivity.goBack();
-                LogUtil.d(this, "goBack");
+                Util.d(this, "goBack");
                 break;
             case R.id.theme_apply_button://应用主题
                 //发送换肤广播
@@ -160,7 +159,7 @@ public class ThemeDetailFragment extends BaseFragment {
                 intent.putExtra("themePath", themeInfo.getDownloadPath());
                 mActivity.sendBroadcast(intent);
                 progressFrameLayout.setVisibility(View.VISIBLE);
-                LogUtil.d(this, "apply_theme : " + themeInfo.getDownloadPath());
+                Util.d(this, "apply_theme : " + themeInfo.getDownloadPath());
                 break;
         }
     }
@@ -171,10 +170,10 @@ public class ThemeDetailFragment extends BaseFragment {
         //只有收藏一个checkBox所以就不switch了
         if (isChanged) {
             MyApplication.editor.putBoolean(themeInfo.getId() + "_collect", true);
-            themeCollectionCheckbox.setText("  取消收藏");
+            themeCollectionCheckbox.setText("  " + getString(R.string.cancle) + getString(R.string.collect));
         } else {
             MyApplication.editor.putBoolean(themeInfo.getId() + "_collect", false);
-            themeCollectionCheckbox.setText("  收藏");
+            themeCollectionCheckbox.setText("  " + getString(R.string.collect));
         }
         //MyApplication.editor.commit();
     }
@@ -187,15 +186,15 @@ public class ThemeDetailFragment extends BaseFragment {
         @Override
         public void onReceive(Context context, Intent intent) {
             boolean themeResult = intent.getBooleanExtra("themeResult", false);
-            LogUtil.d(this, "onReceive: " + intent.getAction() + "   themeResult = " + themeResult);
+            Util.d(this, "onReceive: " + intent.getAction() + "   themeResult = " + themeResult);
             if (themeResult) {
-                //Toast.makeText(mActivity, R.string.theme_apply_success, Toast.LENGTH_LONG).show();
+                //Util.toastShort(mActivity, R.string.theme_apply_success);
                 //回到桌面
                 Intent intent2 = new Intent(Intent.ACTION_MAIN);
                 intent2.addCategory(Intent.CATEGORY_HOME);
                 startActivity(intent2);
             } else {
-                Toast.makeText(mActivity, R.string.theme_apply_fail, Toast.LENGTH_LONG).show();
+                Util.toastShort(mActivity, R.string.theme_apply_fail);
                 progressFrameLayout.setVisibility(View.GONE);
             }
         }

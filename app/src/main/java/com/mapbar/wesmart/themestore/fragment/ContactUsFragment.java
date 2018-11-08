@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.mapbar.wesmart.themestore.R;
-import com.mapbar.wesmart.themestore.util.LogUtil;
+import com.mapbar.wesmart.themestore.util.Util;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -52,12 +52,12 @@ public class ContactUsFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.button_back:
                 mActivity.goBack();
-                LogUtil.d(this, "goBack");
+                Util.d(this, "goBack");
                 break;
             case R.id.text_mapbar_url://官网网址
                 //startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(textMapbarUrl.getText().toString())));//调用系统默认浏览器，访问网址
 //                cm.setText(textMapbarUrl.getText().toString());
-//                Toast.makeText(mActivity, R.string.copy_net_address, Toast.LENGTH_SHORT).show();
+//                Util.toastShort(mActivity, R.string.copy_net_address);
                 break;
             case R.id.text_mapbar_tel://客服电话
                 //跳转到拨号界面，用户手动点击拨打
@@ -65,7 +65,7 @@ public class ContactUsFragment extends BaseFragment {
                 break;
             case R.id.text_mapbar_qq://QQ号
 //                cm.setText(textMapbarQQ.getText().toString());
-//                Toast.makeText(mActivity, R.string.copy_qq_number, Toast.LENGTH_SHORT).show();
+//                Util.toastShort(mActivity, R.string.copy_qq_number);
                 break;
         }
     }
