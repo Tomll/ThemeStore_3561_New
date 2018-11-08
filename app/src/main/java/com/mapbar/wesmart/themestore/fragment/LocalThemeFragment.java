@@ -47,8 +47,8 @@ public class LocalThemeFragment extends BaseFragment {
     public void initViewBefore() {
         //初始化数据
         //String themesJson = getAssetJson("themes.json", mActivity);//获取asset中的主题资源信息
-//        String localThemesJson = "system/etc/themes/themes.json";//系统预置主题路径
-        String localThemesJson = "/storage/emulated/0/internalDisk/themes/themes.json";//本地主题路径
+        String localThemesJson = "system/etc/themes/themes.json";//系统预置主题路径
+//        String localThemesJson = "/storage/emulated/0/internalDisk/themes/themes.json";//本地主题路径
         String themesJson = getLocalThemesJson(localThemesJson);
         //读数据
         ArrayList<ThemeInfo> themeList1 = parseHaveHeaderJsonArray(themesJson);
