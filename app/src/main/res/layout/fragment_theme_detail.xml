@@ -93,7 +93,7 @@
             android:layout_below="@+id/scrollView1"
             android:layout_marginTop="26px"
             android:drawableLeft="@mipmap/theme_designer"
-            android:text="  设计师：小新"
+            android:text="@string/designer"
             android:textColor="#D6D6D6" />
 
         <TextView
@@ -105,7 +105,7 @@
             android:layout_below="@+id/theme_designer"
             android:layout_marginTop="15px"
             android:drawableLeft="@mipmap/theme_download_count"
-            android:text="  10000次           大小：20.5MB"
+            android:text="@string/downloads_and_size"
             android:textColor="#D6D6D6" />
 
         <TextView
@@ -117,7 +117,7 @@
             android:layout_below="@+id/theme_download_count"
             android:layout_marginTop="15px"
             android:drawableLeft="@mipmap/theme_publish_time"
-            android:text="  发布时间：2018.09.26"
+            android:text="@string/release_date"
             android:textColor="#D6D6D6" />
 
         <com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.TipPointGroup

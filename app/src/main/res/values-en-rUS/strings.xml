@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">ThemeStore</string>
+    <string name="theme">Theme</string>
+    <string name="mine">Mine</string>
+    <string name="search">Search</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="unlogin">Not logged in</string>
+    <string name="local_theme">Local theme</string>
+    <string name="my_purchase">My purchase</string>
+    <string name="my_collection">My collection</string>
+    <string name="my_message">My message</string>
+    <string name="contact_us">Contact us</string>
+    <string name="input_keywords">Please enter key words</string>
+    <string name="can_not_emptyinput">Input cannot be empty</string>
+    <string name="no_search_content">No %1$2s related content found</string>
+    <string name="no_message">No message received</string>
+    <string name="no_content">Did not find the content</string>
+    <string name="cancle">Cancel</string>
+    <string name="back">Return</string>
+    <string name="theme_synopsis">Theme introduction</string>
+    <string name="free">&#160;Free</string>
+    <string name="downloads">&#160;Downloads</string>
+    <string name="designer">&#160;&#160;Designer：%1$s</string>
+    <string name="downloads_and_size">&#160; %1$d Times &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Size：%2$sMB</string>
+    <string name="release_date">&#160;&#160;Release date：%1$s</string>
+    <string name="collect">&#160;Collect</string>
+    <string name="apply_theme">Apply</string>
+    <string name="theme_applying">Theme configuration...</string>
+    <string name="theme_apply_success">Theme application success</string>
+    <string name="theme_apply_fail">Theme application failed</string>
+    <string name="please_login_first">Please login first</string>
+    <string name="please_login_center_first">Please login to User Center account first</string>
+    <string name="copy_net_address">The official website address has been copied to the clipboard</string>
+    <string name="copy_tel_number">The phone number has been copied to the clipboard</string>
+    <string name="copy_qq_number">The QQ number has been copied to the clipboard</string>
+    <string name="official_website">Official website： </string>
+    <string name="customer_service">Customer service： </string>
+    <string name="qq">Q&#160;&#160;Q：</string>
+    <string name="can_not_delete_preset_theme">System built-in theme cannot be deleted</string>
+    <string name="can_not_delete_using_theme">The theme in use cannot be deleted</string>
+
+
+</resources>

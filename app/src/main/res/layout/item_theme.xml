@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_marginTop="5dp"
-                    android:text="12万次下载"
+                    android:text="@string/downloads"
                     android:textColor="@color/deep_gray"
                     android:textSize="18sp" />
 
