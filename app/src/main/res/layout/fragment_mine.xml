@@ -32,9 +32,9 @@
 
             <com.mapbar.wesmart.themestore.widget.CircleImageView
                 android:id="@+id/imageViewUserIcon"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_marginTop="80dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="50dp"
                 android:src="@mipmap/head" />
 
             <TextView
@@ -42,7 +42,7 @@
                 style="@style/textAppearanceXXXLargeBold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:text="未登录" />
 
             <Button
@@ -50,7 +50,7 @@
                 style="@style/textAppearanceXXLarge"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/button_selector"
                 android:text="@string/login"
                 android:textColor="@color/white" />

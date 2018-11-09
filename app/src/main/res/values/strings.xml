@@ -22,8 +22,8 @@
     <string name="free">&#160;免费</string>
     <string name="downloads">&#160;次下载</string>
     <string name="designer">&#160;&#160;设计师：%1$s</string>
-    <string name="downloads_and_size">&#160; %1$d 次&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;大小：%2$sMB</string>
-    <string name="release_date">&#160;&#160;发布时间：%1$s</string>
+    <string name="downloads_and_size">&#160; %1$d 次&#160;大小：%2$sMB</string>
+    <string name="release_date">&#160;&#160;时间：%1$s</string>
     <string name="collect">&#160;收藏</string>
     <string name="apply_theme">应用主题</string>
     <string name="theme_applying">主题配置中...</string>

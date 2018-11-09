@@ -43,7 +43,7 @@ public class ThemeRecycleView extends RecyclerView {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 3);// 创建布局管理器，设置为3列的布局
         ThemeRecycleView.this.setLayoutManager(gridLayoutManager);// 给recyclerView设置布局管理器
         ThemeRecycleView.this.setItemAnimator(new DefaultItemAnimator());// 设置增加或删除条目的动画
-        ThemeRecycleView.this.addItemDecoration(new SpaceItemDecoration(5));// 设置item的间距(需自定义：SpacesItemDecoration类)
+        ThemeRecycleView.this.addItemDecoration(new SpaceItemDecoration(10));// 设置item的间距(需自定义：SpacesItemDecoration类)
         //themeRecycleAdapter进行初始化
         themeRecycleViewAdapter.init(ThemeRecycleView.this, recycleViewOnItemClickListener, recycleViewOnItemCheckedChangedListener, recycleViewOnItemLongClickListener);
     }

@@ -10,9 +10,9 @@
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="100dp"
+        android:layout_width="70dp"
         android:layout_height="match_parent"
-        android:background="@color/color_status_bar"
+        android:background="@color/color_title_bar_bg"
         android:gravity="center_vertical">
 
         <LinearLayout

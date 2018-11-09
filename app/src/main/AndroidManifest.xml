@@ -24,7 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.FullScreenPreviewActivity" />
+        <activity android:name=".activity.FullScreenPreviewActivity"
+            android:screenOrientation="landscape"/>
 
         <!--AutoLayout需要配置设计稿尺寸-->
         <meta-data

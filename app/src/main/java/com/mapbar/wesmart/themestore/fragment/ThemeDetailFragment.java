@@ -107,7 +107,7 @@ public class ThemeDetailFragment extends BaseFragment {
             }
         });
         //初始化指示点布局,
-        tipPointGroup.init(mAutoViewPagerAdapter.getRealCount(), R.drawable.selector_theme_detail_position_point, 30, 3);
+        tipPointGroup.init(mAutoViewPagerAdapter.getRealCount(), R.drawable.selector_theme_detail_position_point, 80, 10);
         //设置适配器 并 传入指示点布局,如果用户不需要指示点布局，那么传入null即可（指示点布局传入前必须先进行初始化）
         autoViewPager.init(mAutoViewPagerAdapter, tipPointGroup, true);
 

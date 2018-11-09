@@ -1,9 +1,13 @@
 package com.mapbar.wesmart.themestore.activity;
 
+import android.Manifest;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
@@ -43,13 +47,33 @@ public class MainActivity extends AutoLayoutActivity /*implements BaseFragment.B
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);//绑定初始化ButterKnife
-        fragmentManager = getFragmentManager();
-        //themeFragment = new ThemeFragment();//"网络主题" // TODO: 2018/10/16
-        localThemeFragment = new LocalThemeFragment();//"一期先使用本地主题"
-        mineFragment = new MineFragment();//"我的"
-        searchFragment = new SearchFragment();//"搜索"
-        radioButton1.setChecked(true);//默认显示 "主题" Fragment
+        ButterKnife.bind(this);
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 125);
+        } else {
+            fragmentManager = getFragmentManager();
+            //themeFragment = new ThemeFragment();//"网络主题" // TODO: 2018/10/16
+            localThemeFragment = new LocalThemeFragment();//"一期先使用本地主题"
+            mineFragment = new MineFragment();//"我的"
+            searchFragment = new SearchFragment();//"搜索"
+            radioButton1.setChecked(true);//默认显示 "主题" Fragment
+        }
+
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            fragmentManager = getFragmentManager();
+            //themeFragment = new ThemeFragment();//"网络主题" // TODO: 2018/10/16
+            localThemeFragment = new LocalThemeFragment();//"一期先使用本地主题"
+            mineFragment = new MineFragment();//"我的"
+            searchFragment = new SearchFragment();//"搜索"
+            radioButton1.setChecked(true);//默认显示 "主题" Fragment
+        }
     }
 
     @OnCheckedChanged({R.id.radioButton1, R.id.radioButton2, R.id.radioButton3})

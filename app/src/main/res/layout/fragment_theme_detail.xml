@@ -20,8 +20,8 @@
 
         <android.support.v7.widget.CardView
             android:id="@+id/viewPagerContainer"
-            android:layout_width="490px"
-            android:layout_height="300px"
+            android:layout_width="400px"
+            android:layout_height="280px"
             android:layout_below="@+id/title_bar"
             android:layout_marginTop="19px"
             android:clickable="true"
@@ -42,10 +42,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/viewPagerContainer"
-            android:layout_marginLeft="34px"
+            android:layout_marginLeft="24px"
             android:layout_toRightOf="@+id/viewPagerContainer"
             android:text="@string/theme_synopsis"
-            android:textColor="@color/white" />
+            android:textColor="@color/blue"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/theme_price"
@@ -58,72 +59,89 @@
             android:layout_marginRight="10dp"
             android:text="@string/free"
             android:textColor="@color/color_blue"
-            android:textSize="26sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <ScrollView
             android:id="@+id/scrollView1"
             android:layout_width="match_parent"
-            android:layout_height="100px"
+            android:layout_height="260px"
             android:layout_alignLeft="@+id/tv1"
             android:layout_below="@+id/tv1"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="26px"
+            android:layout_marginTop="10px"
             android:scrollbarFadeDuration="0"
             android:scrollbarSize="3dp"
             android:scrollbarStyle="outsideOverlay"
             android:scrollbarThumbVertical="@color/gray">
 
-            <TextView
-                android:id="@+id/theme_synopsis"
-                style="@style/textAppearanceXLarge"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:lineSpacingMultiplier="1.2"
-                android:text="街坊卡拉是收到附件是开绿灯解放安康圣诞节快乐的说法就是打开就是快捷方式卡颗螺丝钉解放昆仑山搭街坊深刻搭街坊卡拉是收到附件是开绿灯解放安康圣诞节快乐"
-                android:textColor="#9B9B9B" />
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/theme_synopsis"
+                    style="@style/textAppearanceXLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:lineSpacingMultiplier="1.2"
+                    android:text="街坊卡拉是收到附件是开绿灯解放安康圣诞节快乐的说法就是打开就是快捷方式卡颗螺丝钉解放昆仑山搭街坊深刻搭街坊卡拉是收到附件是开绿灯解放安康圣诞节快乐"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/theme_designer"
+                    style="@style/textAppearanceXLarge"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/theme_synopsis"
+                    android:layout_below="@+id/theme_synopsis"
+                    android:layout_marginTop="10px"
+                    android:drawableLeft="@mipmap/theme_designer"
+                    android:text="@string/designer"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/theme_download_count"
+                    style="@style/textAppearanceXXLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/theme_designer"
+                    android:layout_below="@+id/theme_designer"
+                    android:layout_marginTop="10px"
+                    android:drawableLeft="@mipmap/theme_download_count"
+
+                    android:text="@string/downloads_and_size"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/theme_publish_time"
+                    style="@style/textAppearanceXXLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignLeft="@+id/theme_download_count"
+                    android:layout_below="@+id/theme_download_count"
+                    android:layout_marginTop="10px"
+                    android:drawableLeft="@mipmap/theme_publish_time"
+                    android:text="@string/release_date"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp" />
+            </RelativeLayout>
         </ScrollView>
 
-        <TextView
-            android:id="@+id/theme_designer"
-            style="@style/textAppearanceXLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/scrollView1"
-            android:layout_below="@+id/scrollView1"
-            android:layout_marginTop="26px"
-            android:drawableLeft="@mipmap/theme_designer"
-            android:text="@string/designer"
-            android:textColor="#D6D6D6" />
-
-        <TextView
-            android:id="@+id/theme_download_count"
-            style="@style/textAppearanceXXLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/theme_designer"
-            android:layout_below="@+id/theme_designer"
-            android:layout_marginTop="15px"
-            android:drawableLeft="@mipmap/theme_download_count"
-            android:text="@string/downloads_and_size"
-            android:textColor="#D6D6D6" />
-
-        <TextView
-            android:id="@+id/theme_publish_time"
-            style="@style/textAppearanceXXLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/theme_download_count"
-            android:layout_below="@+id/theme_download_count"
-            android:layout_marginTop="15px"
-            android:drawableLeft="@mipmap/theme_publish_time"
-            android:text="@string/release_date"
-            android:textColor="#D6D6D6" />
 
         <com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.TipPointGroup
             android:id="@+id/tipPointGroup"
-            android:layout_width="490px"
-            android:layout_height="5px"
+            android:layout_width="400px"
+            android:layout_height="20px"
             android:layout_alignLeft="@+id/viewPagerContainer"
             android:layout_below="@+id/viewPagerContainer"
             android:layout_marginTop="28px"
@@ -134,19 +152,21 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="95px"
+        android:layout_height="80px"
         android:layout_alignParentBottom="true"
         android:background="@color/color_title_bar_bg">
 
         <Button
             android:id="@+id/theme_apply_button"
             style="@style/textAppearanceXXLarge"
-            android:layout_width="130px"
+            android:layout_width="wrap_content"
             android:layout_height="46px"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="35px"
             android:background="@drawable/shap_button_blue"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="@string/apply_theme" />
 
         <CheckBox
