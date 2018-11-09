@@ -1,9 +1,11 @@
 package com.mapbar.wesmart.themestore.fragment;
 
-import android.provider.Settings;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -43,9 +45,18 @@ public class MineFragment extends BaseFragment {
     TextView tvMyCollection;
     @BindView(R.id.tv_my_purchase)
     TextView tvMyPurchase;
+    @BindView(R.id.progressLogin)
+    FrameLayout progressLogin;
     int loginState;
     String faceUrl;
     String userName;
+
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+        }
+    };
 
     @Override
     public void initViewBefore() {
@@ -64,9 +75,12 @@ public class MineFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         //每次onResume,获取登录状态,用户数据,并执行登录退出操作
-        loginState = Settings.Global.getInt(mActivity.getContentResolver(), "login_state", 0);
-        faceUrl = Settings.Global.getString(mActivity.getContentResolver(), "faceUrl");
-        userName = Settings.Global.getString(mActivity.getContentResolver(), "userName");
+//        loginState = Settings.Global.getInt(mActivity.getContentResolver(), "login_state", 0);
+//        faceUrl = Settings.Global.getString(mActivity.getContentResolver(), "faceUrl");
+//        userName = Settings.Global.getString(mActivity.getContentResolver(), "userName");
+        loginState = 1;
+        faceUrl = "https://pic.qqtn.com/up/2018-8/2018082909465972970.jpg";
+        userName = "辛巴";
         Util.d(this, "onResume:  \nlogin_state: " + loginState + "\nfaceUrl: " + faceUrl + "\nuserName: " + userName);
         if (!MyApplication.sp.getBoolean("logOutByHand", false) && loginState == 1) {//个人中心已登录
             login();
@@ -86,7 +100,14 @@ public class MineFragment extends BaseFragment {
                     if (loginState == 0) {//个人中心未登录
                         Util.toastShort(mActivity, R.string.please_login_center_first);
                     } else if (loginState == 1) {//个人中心已登录
-                        login();
+                        progressLogin.setVisibility(View.VISIBLE);
+                        //2秒后登录
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                              login();
+                            }
+                        },2000);
                     }
                 } else if (buttonLogin.getText().equals(getString(R.string.logout))) {
                     logout();
@@ -123,8 +144,12 @@ public class MineFragment extends BaseFragment {
 
     }
 
+
     //登录逻辑
     public void login() {
+        //延时两秒
+        progressLogin.setVisibility(View.GONE);
+        //真实登录逻辑
         MyApplication.editor.putBoolean("logOutByHand", false).commit();
         if (null != userName) {
             textViewUserName.setText(userName);

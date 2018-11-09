@@ -22,7 +22,7 @@
     <string name="free">&#160;Free</string>
     <string name="downloads">&#160;Downloads</string>
     <string name="designer">&#160;&#160;Designer：%1$s</string>
-    <string name="downloads_and_size">&#160; %1$d Times &#160;Size：%2$sMB</string>
+    <string name="downloads_and_size">&#160; %1$d Times &#160;&#160;&#160;Size：%2$sMB</string>
     <string name="release_date">&#160;&#160;Release date：%1$s</string>
     <string name="collect">&#160;Collect</string>
     <string name="apply_theme">Apply</string>

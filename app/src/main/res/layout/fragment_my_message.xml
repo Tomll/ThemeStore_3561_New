@@ -5,9 +5,9 @@
     android:background="@color/color_page_bg"
     android:clickable="true"
     android:orientation="vertical"
-    android:paddingLeft="30px"
-    android:paddingRight="30px"
-    android:paddingTop="10px">
+    android:paddingLeft="@dimen/pagePaddingLeft"
+    android:paddingRight="@dimen/pagePaddingRight"
+    android:paddingTop="@dimen/pagePaddingTop">
 
     <include layout="@layout/layout_title_bar" />
 

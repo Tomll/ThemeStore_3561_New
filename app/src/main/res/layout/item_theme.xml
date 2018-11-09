@@ -34,7 +34,7 @@
                     android:layout_alignParentBottom="true"
                     android:text="@string/downloads"
                     android:textColor="@color/deep_gray"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/tv_theme_name"
@@ -42,8 +42,9 @@
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/tv_theme_downloads"
                     android:text="星空漫步"
+                    android:layout_marginBottom="10px"
                     android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/tv_them_price"
@@ -54,8 +55,10 @@
                     android:drawableStart="@mipmap/free"
                     android:gravity="center"
                     android:text="@string/free"
+                    android:layout_marginBottom="5px"
+                    android:layout_marginRight="5px"
                     android:textColor="@color/color_blue"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
             </RelativeLayout>
         </LinearLayout>
 

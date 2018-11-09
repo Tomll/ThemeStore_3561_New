@@ -2,6 +2,8 @@ package com.mapbar.wesmart.themestore.fragment;
 
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.widget.TextView;
 
@@ -55,17 +57,17 @@ public class ContactUsFragment extends BaseFragment {
                 Util.d(this, "goBack");
                 break;
             case R.id.text_mapbar_url://官网网址
-                //startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(textMapbarUrl.getText().toString())));//调用系统默认浏览器，访问网址
+                startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(textMapbarUrl.getText().toString())));//调用系统默认浏览器，访问网址
 //                cm.setText(textMapbarUrl.getText().toString());
 //                Util.toastShort(mActivity, R.string.copy_net_address);
                 break;
             case R.id.text_mapbar_tel://客服电话
                 //跳转到拨号界面，用户手动点击拨打
-//                startActivity(new Intent(Intent.ACTION_DIAL).setData(Uri.parse("tel:" + textMapbarTel.getText())));
+                startActivity(new Intent(Intent.ACTION_DIAL).setData(Uri.parse("tel:" + textMapbarTel.getText())));
                 break;
             case R.id.text_mapbar_qq://QQ号
-//                cm.setText(textMapbarQQ.getText().toString());
-//                Util.toastShort(mActivity, R.string.copy_qq_number);
+                cm.setText(textMapbarQQ.getText().toString());
+                Util.toastShort(mActivity, R.string.copy_qq_number);
                 break;
         }
     }
