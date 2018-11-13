@@ -1,10 +1,10 @@
 package com.mapbar.wesmart.themestore.fragment;
 
-import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -65,17 +65,15 @@ public class ThemeDetailFragment extends BaseFragment {
     ArrayList<String> previewUrlList = new ArrayList<>();
     private AutoViewPagerAdapter<String> mAutoViewPagerAdapter;
 
-    public ThemeDetailFragment() {
-    }
 
-    @SuppressLint("ValidFragment")
-    public ThemeDetailFragment(ThemeInfo themeInfo, boolean isLocalTheme) {
-        //从构造传来的themeInfo 对象中得到预览图路径url
-        this.isLocalTheme = isLocalTheme;
-        this.themeInfo = themeInfo;
-        previewUrlList.add(themeInfo.getPreView().getWidgetUrl());
-        previewUrlList.add(themeInfo.getPreView().getIconUrl());
-        previewUrlList.add(themeInfo.getPreView().getLockScreenUrl());
+    //通过setArguments的方法传递参数，避免配置项发生变化后，成员变量参数丢失
+    public static ThemeDetailFragment newInstance(ThemeInfo themeInfo, boolean isLocalTheme) {
+        ThemeDetailFragment themeDetailFragment = new ThemeDetailFragment();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("isLocalTheme", isLocalTheme);
+        bundle.putSerializable("themeInfo", themeInfo);
+        themeDetailFragment.setArguments(bundle);
+        return themeDetailFragment;
     }
 
     @Override
@@ -94,6 +92,14 @@ public class ThemeDetailFragment extends BaseFragment {
 
     @Override
     public void initView(View rootView) {
+        Bundle bundle = getArguments();
+        isLocalTheme = bundle.getBoolean("isLocalTheme");
+        themeInfo = (ThemeInfo) bundle.getSerializable("themeInfo");
+        //预览图数据
+        previewUrlList.add(themeInfo.getPreView().getWidgetUrl());
+        previewUrlList.add(themeInfo.getPreView().getIconUrl());
+        previewUrlList.add(themeInfo.getPreView().getLockScreenUrl());
+
         title.setText(themeInfo.getThemeName());//标题设置为 主题名
         //创建AutoViewPagerAdapter适配器
         mAutoViewPagerAdapter = new AutoViewPagerAdapter<>(mActivity, previewUrlList, new AutoViewPagerAdapter.OnAutoViewPagerItemClickListener<String>() {

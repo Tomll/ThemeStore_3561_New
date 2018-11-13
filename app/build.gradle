@@ -6,7 +6,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
     defaultConfig {
-        applicationId "com.mapbar.wesmart.themestore"
+        applicationId "com.autoai.themestore"
         minSdkVersion 21
         targetSdkVersion 23
         versionCode 1

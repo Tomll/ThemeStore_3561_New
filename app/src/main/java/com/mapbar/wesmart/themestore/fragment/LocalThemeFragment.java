@@ -72,7 +72,8 @@ public class LocalThemeFragment extends BaseFragment {
             @Override
             public void onItemClick(View view, int position) {
                 Util.d(this, "click item " + position);
-                addFragment(new ThemeDetailFragment(themeList.get(position), true));
+                ThemeDetailFragment themeDetailFragment = ThemeDetailFragment.newInstance(themeList.get(position), true);
+                addFragment(themeDetailFragment);
             }
         }, null, null);
     }
