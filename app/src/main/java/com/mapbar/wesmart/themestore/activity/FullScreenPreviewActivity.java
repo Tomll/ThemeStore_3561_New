@@ -38,6 +38,18 @@ public class FullScreenPreviewActivity extends AutoLayoutActivity {
         initView();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        autoViewPager.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        autoViewPager.stop();
+    }
+
     //初始化数据
     public void initData() {
         Intent intent = getIntent();
@@ -60,7 +72,6 @@ public class FullScreenPreviewActivity extends AutoLayoutActivity {
         //设置适配器 并 传入指示点布局,如果用户不需要指示点布局，那么传入null即可（指示点布局传入前必须先进行初始化）
         autoViewPager.init(autoViewPagerAdapter, tipPointGroup, true);
         autoViewPager.setCurrentItem(position);
-
     }
 
     //隐藏状态栏 底部导航栏,全屏显示

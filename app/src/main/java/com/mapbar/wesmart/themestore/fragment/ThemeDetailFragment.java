@@ -133,8 +133,15 @@ public class ThemeDetailFragment extends BaseFragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        autoViewPager.start();
+    }
+
+    @Override
     public void onPause() {
         super.onPause();
+        autoViewPager.stop();
         progressFrameLayout.setVisibility(View.GONE);
     }
 

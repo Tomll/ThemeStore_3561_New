@@ -22,8 +22,8 @@
             android:layout_marginEnd="20dp"
             android:layout_weight="8.5"
             android:background="@drawable/shap_search_bar_background"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
-
 
             <LinearLayout
                 android:id="@+id/layout_search"
@@ -36,7 +36,6 @@
                 <ImageView
                     android:layout_width="32px"
                     android:layout_height="32px"
-                    android:layout_centerVertical="true"
                     android:src="@mipmap/ico_search_icon" />
             </LinearLayout>
 
@@ -45,7 +44,6 @@
                 style="@style/textAppearanceXXLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:ellipsize="end"
@@ -62,8 +60,6 @@
                 style="@style/textAppearanceXLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="20dp"
                 android:gravity="center_vertical"
                 android:text="10个结果"
@@ -74,7 +70,6 @@
                 android:id="@+id/layout_clear"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:focusable="true"
                 android:gravity="center_vertical"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp">
@@ -82,7 +77,6 @@
                 <ImageView
                     android:layout_width="32px"
                     android:layout_height="32px"
-                    android:layout_centerVertical="true"
                     android:src="@mipmap/ico_revoke" />
             </LinearLayout>-->
         </LinearLayout>
@@ -96,11 +90,66 @@
             android:background="@drawable/button_selector"
             android:gravity="center"
             android:text="@string/cancle" />
-
     </LinearLayout>
 
+    <ScrollView
+        android:id="@+id/layoutSearchHistory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="30px"
+            android:paddingRight="30px"
+            android:paddingTop="20px">
+
+            <TextView
+                android:id="@+id/search_history_tv"
+                style="@style/textAppearanceXXXLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="搜索历史"
+                android:textColor="@color/deep_gray" />
+
+            <TextView
+                android:id="@+id/clear_search_history"
+                style="@style/textAppearanceXXXLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/search_history_tv"
+                android:layout_alignParentEnd="true"
+                android:text="清除记录"
+                android:textColor="@color/color_blue" />
+
+            <com.mapbar.wesmart.themestore.widget.FlowLayout
+                android:id="@+id/flow_layout_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/search_history_tv"
+                android:layout_marginTop="20px" />
+
+            <TextView
+                android:id="@+id/search_hot_tv"
+                style="@style/textAppearanceXXXLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/flow_layout_history"
+                android:layout_marginTop="20px"
+                android:text="热门搜索"
+                android:textColor="@color/deep_gray" />
+
+            <com.mapbar.wesmart.themestore.widget.FlowLayout
+                android:id="@+id/flow_layout_hot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/search_hot_tv"
+                android:layout_marginTop="10px" />
+        </RelativeLayout>
+    </ScrollView>
+
     <FrameLayout
-        android:id="@+id/frameLayoutNoContent"
+        android:id="@+id/layoutNoContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
