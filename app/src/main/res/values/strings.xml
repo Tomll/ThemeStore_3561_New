@@ -39,6 +39,9 @@
     <string name="qq">Q&#160;&#160;Q：</string>
     <string name="can_not_delete_preset_theme">系统内置主题不可删除</string>
     <string name="can_not_delete_using_theme">使用中的主题不可删除</string>
+    <string name="search_history">搜索历史</string>
+    <string name="clear_search_history">清除记录</string>
+    <string name="search_hot">热门搜索</string>
 
 
 </resources>
