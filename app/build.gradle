@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
-apply from: '../../../scripts/android_gradle/compile.gradle'
-apply from: '../../../scripts/android_gradle/android_app.gradle'
+//apply from: '../../../scripts/android_gradle/compile.gradle'
+//apply from: '../../../scripts/android_gradle/android_app.gradle'
 
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
     defaultConfig {
-        applicationId "com.mapbar.wesmart.themestore"
+        applicationId "com.mapbar.wesmart.themestore2"
         minSdkVersion 21
         targetSdkVersion 23
         versionCode 1

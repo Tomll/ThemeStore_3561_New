@@ -12,6 +12,6 @@
     android:paddingTop="10dp"
     android:text="HelloWorld"
     android:textColor="#3f3e3e"
-    android:textSize="18sp">
+    android:textSize="16sp">
 
 </TextView>

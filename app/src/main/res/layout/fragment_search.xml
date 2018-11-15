@@ -109,8 +109,7 @@
                 style="@style/textAppearanceXXXLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/search_history"
-                android:textColor="@color/deep_gray" />
+                android:text="@string/search_history" />
 
             <TextView
                 android:id="@+id/clear_search_history"
@@ -136,8 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/flow_layout_history"
                 android:layout_marginTop="20px"
-                android:text="@string/search_hot"
-                android:textColor="@color/deep_gray" />
+                android:text="@string/search_hot" />
 
             <com.mapbar.wesmart.themestore.widget.FlowLayout
                 android:id="@+id/flow_layout_hot"

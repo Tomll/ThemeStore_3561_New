@@ -1,2 +1,3 @@
-include ':AutoaiThemeStore'
-project(":AutoaiThemeStore").projectDir = file("../AutoaiThemeStore/app")
+include ':app'
+//include ':AutoaiThemeStore'
+//project(":AutoaiThemeStore").projectDir = file("../AutoaiThemeStore/app")
