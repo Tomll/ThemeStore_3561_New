@@ -109,7 +109,7 @@
                 style="@style/textAppearanceXXXLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="搜索历史"
+                android:text="@string/search_history"
                 android:textColor="@color/deep_gray" />
 
             <TextView
@@ -119,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/search_history_tv"
                 android:layout_alignParentEnd="true"
-                android:text="清除记录"
+                android:text="@string/clear_search_history"
                 android:textColor="@color/color_blue" />
 
             <com.mapbar.wesmart.themestore.widget.FlowLayout
@@ -136,7 +136,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/flow_layout_history"
                 android:layout_marginTop="20px"
-                android:text="热门搜索"
+                android:text="@string/search_hot"
                 android:textColor="@color/deep_gray" />
 
             <com.mapbar.wesmart.themestore.widget.FlowLayout

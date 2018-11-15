@@ -39,6 +39,9 @@
     <string name="qq">Q&#160;&#160;Q：</string>
     <string name="can_not_delete_preset_theme">System built-in theme cannot be deleted</string>
     <string name="can_not_delete_using_theme">The theme in use cannot be deleted</string>
+    <string name="search_history">Search History</string>
+    <string name="clear_search_history">Clear History</string>
+    <string name="search_hot">Popular Searches</string>
 
 
 </resources>
