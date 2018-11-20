@@ -6,9 +6,10 @@
     android:layout_height="match_parent"
     android:background="@color/color_page_bg"
     android:clickable="true"
+    android:focusable="true"
     android:paddingLeft="30px"
-    android:paddingRight="30px"
-    android:paddingTop="10px">
+    android:paddingTop="10px"
+    android:paddingRight="30px">
 
     <!-- 协作布局顶部内容区 -->
     <android.support.design.widget.AppBarLayout
@@ -36,17 +37,17 @@
                     android:layout_height="match_parent"
                     app:cardCornerRadius="10dp">
 
-                    <com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.AutoViewPager
+                    <com.autoai.themestore.widget.auto_scroll_viewpager.AutoViewPager
                         android:id="@+id/autoViewPager"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:clickable="true" />
 
-                    <com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.TipPointGroup
+                    <com.autoai.themestore.widget.auto_scroll_viewpager.TipPointGroup
                         android:id="@+id/tipPointGroup"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|right"
+                        android:layout_gravity="bottom|end"
                         android:layout_marginBottom="10px"
                         android:orientation="horizontal" />
 
@@ -75,7 +76,6 @@
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="CardView1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textSize="30sp" />
 
@@ -85,7 +85,6 @@
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="CardView1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textSize="30sp" />
 
@@ -95,7 +94,6 @@
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="CardView1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textSize="30sp" />
 
@@ -104,7 +102,6 @@
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="CardView1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textSize="30sp" />
         </LinearLayout>

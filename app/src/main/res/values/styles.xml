@@ -13,73 +13,73 @@
 
     <style name="textAppearanceSSSmall">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">8dp</item>
+        <item name="android:textSize">8sp</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="textAppearanceSSmall">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">10dp</item>
+        <item name="android:textSize">10sp</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="textAppearanceSmall">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">12dp</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="textAppearanceSMedium">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">14dp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="textAppearanceMedium">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">16dp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="textAppearanceLarge">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="textAppearanceXLarge">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="textAppearanceXXLarge">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">22dp</item>
+        <item name="android:textSize">22sp</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="textAppearanceXXXLarge">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">24dp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="textAppearanceXXXXLarge">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">26dp</item>
+        <item name="android:textSize">26sp</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="textAppearanceXXXXXLarge">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">32dp</item>
+        <item name="android:textSize">32sp</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="textGridAppearanceLarge">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textStyle">normal</item>
     </style>
 
@@ -87,67 +87,67 @@
     <!-- Bold Text Style-->
     <style name="textAppearanceSSSmallBold">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">8dp</item>
+        <item name="android:textSize">8sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="textAppearanceSSmallBold">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">10dp</item>
+        <item name="android:textSize">10sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="textAppearanceSmallBold">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">12dp</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="textAppearanceSMediumBold">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">14dp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="textAppearanceMediumBold">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">16dp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="textAppearanceLargeBold">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="textAppearanceXLargeBold">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="textAppearanceXXLargeBold">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">22dp</item>
+        <item name="android:textSize">22sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="textAppearanceXXXLargeBold">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">24dp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="textAppearanceXXXXLargeBold">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">26dp</item>
+        <item name="android:textSize">26sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="textAppearanceXXXXXLargeBold">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">32dp</item>
+        <item name="android:textSize">32sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 

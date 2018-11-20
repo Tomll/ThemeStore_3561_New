@@ -2,14 +2,15 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clickable="true">
+    android:clickable="true"
+    android:focusable="true">
 
-    <com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.AutoViewPager
+    <com.autoai.themestore.widget.auto_scroll_viewpager.AutoViewPager
         android:id="@+id/autoViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.TipPointGroup
+    <com.autoai.themestore.widget.auto_scroll_viewpager.TipPointGroup
         android:id="@+id/tipPointGroup"
         android:layout_width="match_parent"
         android:layout_height="5px"

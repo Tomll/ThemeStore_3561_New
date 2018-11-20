@@ -4,15 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_page_bg"
-    android:clickable="true">
+    android:clickable="true"
+    android:focusable="true">
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="30px"
-        android:paddingRight="30px"
-        android:paddingTop="10px">
+        android:paddingTop="10px"
+        android:paddingRight="30px">
 
         <include
             android:id="@+id/title_bar"
@@ -28,7 +29,7 @@
             app:cardBackgroundColor="@color/color_mine_fragment_card"
             app:cardCornerRadius="10dp">
 
-            <com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.AutoViewPager
+            <com.autoai.themestore.widget.auto_scroll_viewpager.AutoViewPager
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -42,8 +43,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/viewPagerContainer"
-            android:layout_marginLeft="34px"
-            android:layout_toRightOf="@+id/viewPagerContainer"
+            android:layout_marginStart="34px"
+            android:layout_toEndOf="@+id/viewPagerContainer"
             android:text="@string/theme_synopsis"
             android:textColor="@color/white" />
 
@@ -55,7 +56,7 @@
             android:layout_alignBaseline="@+id/tv1"
             android:layout_alignBottom="@+id/tv1"
             android:layout_alignParentEnd="true"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:text="@string/free"
             android:textColor="@color/color_blue"
             android:textSize="26sp"
@@ -65,10 +66,10 @@
             android:id="@+id/scrollView1"
             android:layout_width="match_parent"
             android:layout_height="100px"
-            android:layout_alignLeft="@+id/tv1"
             android:layout_below="@+id/tv1"
-            android:layout_marginRight="10dp"
+            android:layout_alignStart="@+id/tv1"
             android:layout_marginTop="26px"
+            android:layout_marginEnd="10dp"
             android:scrollbarFadeDuration="0"
             android:scrollbarSize="3dp"
             android:scrollbarStyle="outsideOverlay"
@@ -78,21 +79,20 @@
                 android:id="@+id/theme_synopsis"
                 style="@style/textAppearanceXLarge"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:lineSpacingMultiplier="1.2"
-                android:text="街坊卡拉是收到附件是开绿灯解放安康圣诞节快乐的说法就是打开就是快捷方式卡颗螺丝钉解放昆仑山搭街坊深刻搭街坊卡拉是收到附件是开绿灯解放安康圣诞节快乐"
                 android:textColor="#9B9B9B" />
         </ScrollView>
 
         <TextView
             android:id="@+id/theme_designer"
-            style="@style/textAppearanceXLarge"
+            style="@style/textAppearanceXXLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/scrollView1"
             android:layout_below="@+id/scrollView1"
+            android:layout_alignStart="@+id/scrollView1"
             android:layout_marginTop="26px"
-            android:drawableLeft="@mipmap/theme_designer"
+            android:drawableStart="@mipmap/theme_designer"
             android:text="@string/designer"
             android:textColor="#D6D6D6" />
 
@@ -101,10 +101,10 @@
             style="@style/textAppearanceXXLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/theme_designer"
             android:layout_below="@+id/theme_designer"
+            android:layout_alignStart="@+id/theme_designer"
             android:layout_marginTop="15px"
-            android:drawableLeft="@mipmap/theme_download_count"
+            android:drawableStart="@mipmap/theme_download_count"
             android:text="@string/downloads_and_size"
             android:textColor="#D6D6D6" />
 
@@ -113,19 +113,19 @@
             style="@style/textAppearanceXXLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/theme_download_count"
             android:layout_below="@+id/theme_download_count"
+            android:layout_alignStart="@+id/theme_download_count"
             android:layout_marginTop="15px"
-            android:drawableLeft="@mipmap/theme_publish_time"
+            android:drawableStart="@mipmap/theme_publish_time"
             android:text="@string/release_date"
             android:textColor="#D6D6D6" />
 
-        <com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.TipPointGroup
+        <com.autoai.themestore.widget.auto_scroll_viewpager.TipPointGroup
             android:id="@+id/tipPointGroup"
             android:layout_width="490px"
             android:layout_height="5px"
-            android:layout_alignLeft="@+id/viewPagerContainer"
             android:layout_below="@+id/viewPagerContainer"
+            android:layout_alignStart="@+id/viewPagerContainer"
             android:layout_marginTop="28px"
             android:gravity="center"
             android:orientation="horizontal" />
@@ -143,9 +143,9 @@
             style="@style/textAppearanceXXLarge"
             android:layout_width="130px"
             android:layout_height="46px"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="35px"
+            android:layout_marginEnd="35px"
             android:background="@drawable/shap_button_blue"
             android:text="@string/apply_theme" />
 
@@ -155,10 +155,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginRight="60px"
-            android:layout_toLeftOf="@+id/theme_apply_button"
+            android:layout_marginEnd="60px"
+            android:layout_toStartOf="@+id/theme_apply_button"
             android:button="@null"
-            android:drawableLeft="@drawable/selector_theme_detali_collect_button"
+            android:drawableStart="@drawable/selector_theme_detali_collect_button"
             android:text="@string/collect"
             android:textColor="#D6D6D6" />
     </RelativeLayout>

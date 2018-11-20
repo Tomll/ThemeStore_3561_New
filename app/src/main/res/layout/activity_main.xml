@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/color_page_bg"
     android:orientation="horizontal"
-    tools:context="com.mapbar.wesmart.themestore.activity.MainActivity">
+    tools:context="com.autoai.themestore.activity.MainActivity">
 
 
     <RadioGroup
@@ -31,7 +31,6 @@
                 android:gravity="center"
                 android:text="@string/theme"
                 android:textColor="@drawable/txt_color_state" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -50,7 +49,6 @@
                 android:gravity="center"
                 android:text="@string/mine"
                 android:textColor="@drawable/txt_color_state" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -75,7 +73,7 @@
     <FrameLayout
         android:id="@+id/contentLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>

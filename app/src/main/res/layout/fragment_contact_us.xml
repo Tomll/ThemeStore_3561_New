@@ -4,135 +4,131 @@
     android:layout_height="match_parent"
     android:background="@color/color_page_bg"
     android:clickable="true"
+    android:focusable="true"
     android:orientation="vertical"
-    android:paddingLeft="30px"
-    android:paddingRight="30px"
-    android:paddingTop="10px">
+    android:paddingStart="30px"
+    android:paddingTop="10px"
+    android:paddingRight="30px">
 
     <include layout="@layout/layout_title_bar" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="350px"
         android:background="@drawable/shap_title_bar_background"
-        android:orientation="vertical"
         android:padding="20dp">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/iv_official_web"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:src="@mipmap/net_service" />
+
+        <TextView
+            android:id="@+id/tv_official_web"
+            style="@style/textAppearanceXXXLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/iv_official_web"
+            android:layout_alignBottom="@+id/iv_official_web"
+            android:text="@string/official_website" />
+
+        <TextView
+            android:id="@+id/text_mapbar_url"
+            style="@style/textAppearanceXXXLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/tv_official_web"
+            android:layout_alignBottom="@+id/tv_official_web"
+            android:text="http://www.mapbar.com"
+            android:textColor="@color/blue" />
+
+        <TextView
+            android:id="@+id/dev1"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingLeft="30dp">
+            android:layout_height="1dp"
+            android:layout_below="@id/text_mapbar_url"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/deep_gray" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:src="@mipmap/net_service" />
 
-            <TextView
-                style="@style/textAppearanceXXXLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:gravity="center_vertical"
-                android:text="@string/official_website" />
+        <ImageView
+            android:id="@+id/iv_tel_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dev1"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:src="@mipmap/tel_service" />
 
-            <TextView
-                android:id="@+id/text_mapbar_url"
-                style="@style/textAppearanceXXXLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:gravity="center_vertical"
-                android:text="http://www.mapbar.com"
-                android:textColor="@color/blue" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_tel_service"
+            style="@style/textAppearanceXXXLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iv_tel_service"
+            android:layout_toEndOf="@+id/iv_tel_service"
+            android:text="@string/customer_service" />
 
+        <TextView
+            android:id="@+id/text_mapbar_tel"
+            style="@style/textAppearanceXXXLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_tel_service"
+            android:layout_toEndOf="@+id/tv_tel_service"
+            android:text="400-6616677"
+            android:textColor="@color/blue" />
+
+        <TextView
+            android:id="@+id/dev2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/text_mapbar_tel"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/deep_gray" />
+
+        <ImageView
+            android:id="@+id/iv_qq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dev2"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+
+            android:src="@mipmap/qq_service" />
+
+        <TextView
+            android:id="@+id/tv_qq"
+            style="@style/textAppearanceXXXLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iv_qq"
+            android:layout_toEndOf="@+id/iv_qq"
+            android:text="@string/qq" />
+
+        <TextView
+            android:id="@+id/text_mapbar_qq"
+            style="@style/textAppearanceXXXLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_qq"
+            android:layout_toEndOf="@+id/tv_qq"
+            android:text="907915091"
+            android:textColor="@color/blue" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_below="@+id/text_mapbar_qq"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
             android:background="@color/deep_gray" />
+    </RelativeLayout>
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingLeft="30dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:src="@mipmap/tel_service" />
-
-            <TextView
-                style="@style/textAppearanceXXXLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:gravity="center_vertical"
-                android:text="@string/customer_service" />
-
-            <TextView
-                android:id="@+id/text_mapbar_tel"
-                style="@style/textAppearanceXXXLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:gravity="center_vertical"
-                android:text="400-6616677"
-                android:textColor="@color/blue" />
-        </LinearLayout>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="15dp"
-            android:background="@color/deep_gray" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingLeft="30dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="30dp"
-                android:src="@mipmap/qq_service" />
-
-            <TextView
-                style="@style/textAppearanceXXXLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:gravity="center_vertical"
-                android:text="@string/qq" />
-
-            <TextView
-                android:id="@+id/text_mapbar_qq"
-                style="@style/textAppearanceXXXLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:gravity="center_vertical"
-                android:text="907915091"
-                android:textColor="@color/blue" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="15dp"
-            android:background="@color/deep_gray" />
-
-
-    </LinearLayout>
 </LinearLayout>

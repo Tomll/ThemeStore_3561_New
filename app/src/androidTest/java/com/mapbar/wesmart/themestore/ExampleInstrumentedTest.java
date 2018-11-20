@@ -1,4 +1,4 @@
-package com.mapbar.wesmart.themestore;
+package com.autoai.themestore;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.mapbar.wesmart.themestore", appContext.getPackageName());
+        assertEquals("com.autoai.themestore", appContext.getPackageName());
     }
 }

@@ -4,14 +4,15 @@
     android:layout_height="match_parent"
     android:background="@color/color_page_bg"
     android:clickable="true"
+    android:focusable="true"
     android:orientation="vertical"
     android:paddingLeft="30px"
-    android:paddingRight="30px"
-    android:paddingTop="10px">
+    android:paddingTop="10px"
+    android:paddingRight="30px">
 
     <include layout="@layout/layout_title_bar" />
 
-    <com.mapbar.wesmart.themestore.widget.theme_recycle_view.ThemeRecycleView
+    <com.autoai.themestore.widget.theme_recycle_view.ThemeRecycleView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

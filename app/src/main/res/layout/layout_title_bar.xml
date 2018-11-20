@@ -20,9 +20,9 @@
         style="@style/textAppearanceXXXLargeBold"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:drawableLeft="@mipmap/back"
+        android:drawableStart="@mipmap/back"
         android:gravity="center_vertical"
-        android:paddingLeft="15px"
-        android:paddingRight="50dp" />
+        android:paddingStart="15px"
+        android:paddingEnd="50dp" />
 
 </FrameLayout>

@@ -13,9 +13,9 @@
     <string name="contact_us">联系我们</string>
     <string name="input_keywords">请输入关键字</string>
     <string name="can_not_emptyinput">输入内容不能为空</string>
-    <string name="no_search_content">未搜索到 %1$2s 相关的内容</string>
-    <string name="no_message">还没来消息</string>
-    <string name="no_content">没有找到该内容</string>
+    <string name="no_search_content">\n未搜索到 %1$2s 相关的内容</string>
+    <string name="no_message">\n还没来消息</string>
+    <string name="no_content">\n没有找到该内容</string>
     <string name="cancle">取消</string>
     <string name="back">返回</string>
     <string name="theme_synopsis">主题简介</string>

@@ -2,13 +2,12 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/textAppearanceXXXLarge"
     android:layout_width="wrap_content"
-    android:textColor="@drawable/txt_color_state"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:paddingBottom="10dp"
     android:paddingLeft="15dp"
-    android:paddingRight="15dp"
     android:paddingTop="10dp"
-    android:text="HelloWorld">
+    android:paddingRight="15dp"
+    android:paddingBottom="10dp"
+    android:textColor="@drawable/txt_color_state">
 
 </TextView>

@@ -4,93 +4,14 @@
     android:layout_height="match_parent"
     android:background="@color/color_page_bg"
     android:clickable="true"
+    android:focusable="true"
     android:orientation="vertical"
     android:paddingLeft="30px"
-    android:paddingRight="30px"
-    android:paddingTop="10px">
+    android:paddingTop="10px"
+    android:paddingRight="30px">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_margin="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="20dp"
-            android:layout_weight="8.5"
-            android:background="@drawable/shap_search_bar_background"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/layout_search"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
-
-                <ImageView
-                    android:layout_width="32px"
-                    android:layout_height="32px"
-                    android:src="@mipmap/ico_search_icon" />
-            </LinearLayout>
-
-            <EditText
-                android:id="@+id/edtTxt_search_content"
-                style="@style/textAppearanceXXLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:ellipsize="end"
-                android:ems="10"
-                android:focusable="true"
-                android:hint="@string/input_keywords"
-                android:imeOptions="actionSearch"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:textColorHint="@color/deep_gray"></EditText>
-
-            <TextView
-                android:id="@+id/txt_search_count"
-                style="@style/textAppearanceXLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:gravity="center_vertical"
-                android:text="10个结果"
-                android:textColor="@color/gray"
-                android:visibility="gone" />
-
-            <!--<LinearLayout
-                android:id="@+id/layout_clear"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
-
-                <ImageView
-                    android:layout_width="32px"
-                    android:layout_height="32px"
-                    android:src="@mipmap/ico_revoke" />
-            </LinearLayout>-->
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/button_clear"
-            style="@style/textAppearanceXXLarge"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1.5"
-            android:background="@drawable/button_selector"
-            android:gravity="center"
-            android:text="@string/cancle" />
-    </LinearLayout>
+    <include
+        layout="@layout/layout_search_bar"/>
 
     <ScrollView
         android:id="@+id/layoutSearchHistory"
@@ -99,10 +20,10 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:paddingLeft="30px"
-            android:paddingRight="30px"
-            android:paddingTop="20px">
+            android:paddingTop="20px"
+            android:paddingRight="30px">
 
             <TextView
                 android:id="@+id/search_history_tv"
@@ -122,7 +43,7 @@
                 android:text="@string/clear_search_history"
                 android:textColor="@color/color_blue" />
 
-            <com.mapbar.wesmart.themestore.widget.FlowLayout
+            <com.autoai.themestore.widget.FlowLayout
                 android:id="@+id/flow_layout_history"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -139,7 +60,7 @@
                 android:text="@string/search_hot"
                 android:textColor="@color/deep_gray" />
 
-            <com.mapbar.wesmart.themestore.widget.FlowLayout
+            <com.autoai.themestore.widget.FlowLayout
                 android:id="@+id/flow_layout_hot"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -148,34 +69,9 @@
         </RelativeLayout>
     </ScrollView>
 
-    <FrameLayout
+    <include
         android:id="@+id/layoutNoContent"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="103px"
-                android:layout_height="103px"
-                android:layout_gravity="center"
-                android:src="@mipmap/no_content" />
-
-            <TextView
-                android:id="@+id/textViewNoContent"
-                style="@style/textAppearanceXXXLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40px"
-                android:gravity="center"
-                android:text="@string/no_search_content" />
-        </LinearLayout>
-    </FrameLayout>
+        layout="@layout/layout_no_content"
+        android:visibility="gone" />
 
 </LinearLayout>

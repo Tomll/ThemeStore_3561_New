@@ -1,4 +1,4 @@
-package com.mapbar.wesmart.themestore;
+package com.autoai.themestore;
 
 import org.junit.Test;
 

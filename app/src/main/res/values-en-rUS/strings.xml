@@ -13,9 +13,9 @@
     <string name="contact_us">Contact us</string>
     <string name="input_keywords">Please enter key words</string>
     <string name="can_not_emptyinput">Input cannot be empty</string>
-    <string name="no_search_content">No %1$2s related content found</string>
-    <string name="no_message">No message received</string>
-    <string name="no_content">Did not find the content</string>
+    <string name="no_search_content">\nNo %1$2s related content found</string>
+    <string name="no_message">\nNo message received</string>
+    <string name="no_content">\nDid not find the content</string>
     <string name="cancle">Cancel</string>
     <string name="back">Return</string>
     <string name="theme_synopsis">Theme introduction</string>
