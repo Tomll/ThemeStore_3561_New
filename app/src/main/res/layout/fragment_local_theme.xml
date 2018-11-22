@@ -11,7 +11,7 @@
 
     <include layout="@layout/layout_title_bar" />
 
-    <com.mapbar.wesmart.themestore.widget.theme_recycle_view.ThemeRecycleView
+    <com.autoai.themestore.widget.theme_recycle_view.ThemeRecycleView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

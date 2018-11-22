@@ -36,13 +36,13 @@
                     android:layout_height="match_parent"
                     app:cardCornerRadius="10dp">
 
-                    <com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.AutoViewPager
+                    <com.autoai.themestore.widget.auto_scroll_viewpager.AutoViewPager
                         android:id="@+id/autoViewPager"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:clickable="true" />
 
-                    <com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.TipPointGroup
+                    <com.autoai.themestore.widget.auto_scroll_viewpager.TipPointGroup
                         android:id="@+id/tipPointGroup"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

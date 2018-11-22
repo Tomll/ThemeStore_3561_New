@@ -28,7 +28,7 @@
             app:cardBackgroundColor="@color/color_mine_fragment_card"
             app:cardCornerRadius="10dp">
 
-            <com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.AutoViewPager
+            <com.autoai.themestore.widget.auto_scroll_viewpager.AutoViewPager
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -138,7 +138,7 @@
         </ScrollView>
 
 
-        <com.mapbar.wesmart.themestore.widget.auto_scroll_viewpager.TipPointGroup
+        <com.autoai.themestore.widget.auto_scroll_viewpager.TipPointGroup
             android:id="@+id/tipPointGroup"
             android:layout_width="400px"
             android:layout_height="10px"
