@@ -43,3 +43,6 @@ dependencies {
     compile 'com.zhy:autolayout:1.4.5'
 
 }
+repositories {
+    mavenCentral()
+}
